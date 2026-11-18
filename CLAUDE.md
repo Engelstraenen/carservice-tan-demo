@@ -10,7 +10,7 @@ Zwei Design-Entwürfe für carservicetan.de (Tan GmbH, Lackiermeisterfachbetrieb
 Quelle aller Inhalte: https://carservicetan.de (WordPress, Theme von inoya). Markenfarben: Blau #0b4b8a, Cyan #00aeef, Logo orange/blau. Schrift: Mulish (lokal).
 
 ## 3. Regeln für dieses Projekt
-- Entwürfe tragen `noindex` und den Hinweis „Design-Entwurf, nicht die offizielle Webseite“.
+- Entwürfe tragen `noindex` und „Design-Entwurf“ im Seitentitel. Tan GmbH ist ein Kollege von Eugen: Seite wird ihm geschenkt, Eugen will sie als Referenz zeigen. Muss komplett sein (eigenes Impressum, Datenschutz, Ratgeber), keine Links zur alten Seite.
 - Kein Zugriff auf das echte WordPress; Live-Domain nur nach OK.
 - Leere Originalseiten (Glas, Reifen, Oldtimer, Trockeneis) haben von Claude geschriebene Kurztexte: vor Livegang vom Betrieb bestätigen lassen.
 - Fotos stammen von carservicetan.de; die Motive aus 2025/01 (Dellen, Glas, Reifen, Gutachten) sind vermutlich Stockfotos, vor Livegang Rechte klären oder ersetzen.
@@ -33,7 +33,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - Online: https://engelstraenen.github.io/carservice-tan-demo/
 
 ## 8. Offene Fragen
-- Ist Tan GmbH Kunde oder Akquise? Echte Fotos/Videos vom Betrieb verfügbar?
+- Echte Fotos/Videos vom Betrieb verfügbar? Datenschutztext stammt von der alten WordPress-Seite und muss vor Livegang an die neue Technik angepasst werden.
 
 ## 9. Entschieden
 - 18.11.2026: Fassung 1 als statischer One-Pager (HTML/CSS/JS, keine Abhängigkeiten).

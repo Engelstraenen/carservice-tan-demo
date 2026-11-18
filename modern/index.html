@@ -15,7 +15,7 @@
 
 <header class="head" id="head">
   <div class="wrap head__in">
-    <a class="logo" href="#top" aria-label="Car Service TAN – Startseite"><img src="assets/img/logo.png" alt="Car Service TAN" width="600" height="187"></a>
+    <a class="logo" href="#top" aria-label="Car Service TAN – Startseite"><img src="assets/img/logo.png" alt="Car Service TAN" width="594" height="181"></a>
     <nav class="nav" id="nav" aria-label="Hauptmenü">
       <a href="#leistungen">Leistungen</a>
       <a href="#betrieb">Betrieb</a>
@@ -31,18 +31,30 @@
 
 <main id="main">
 
-<section class="hero" id="top">
-  <img class="hero__img" src="assets/img/hero.jpg" alt="Lackieranlage der Tan GmbH in Düsseldorf" width="1920" height="1440" fetchpriority="high">
-  <div class="wrap hero__in">
-    <p class="chip" id="openchip"><i></i><span>Mo–Fr 08–18 Uhr · Sa 08–13 Uhr</span></p>
-    <h1>Lackierservice auf <em>höchstem Niveau.</em></h1>
-    <p class="hero__sub">Lackiermeisterfachbetrieb in Düsseldorf. Mit Red-Eye &amp; Multi-Air System, auf 3000 qm, alles aus einer Hand.</p>
-    <div class="hero__cta">
-      <a class="btn btn--pri" href="#kontakt">Kostenloses Angebot anfragen</a>
-      <a class="btn btn--ghost" href="#leistungen">Leistungen ansehen</a>
+<section class="hero" id="top" aria-roledescription="Slider" aria-label="Unsere Leistungen">
+  <div class="wrap hero__grid">
+    <div class="hero__text">
+      <p class="chip" id="openchip"><i></i><span>Mo–Fr 08–18 Uhr · Sa 08–13 Uhr</span></p>
+      <div class="hero__copy" id="hCopy" aria-live="polite">
+        <p class="hero__kick"><b id="hNum">01</b><span id="hCat">Lackiererei</span></p>
+        <h1 id="hTitle">Lackierservice auf <em>höchstem Niveau.</em></h1>
+        <p class="hero__sub" id="hSub">Autolackier-Meisterfachbetrieb mit Red-Eye &amp; Multi-Air System. Lackierung aller Art von Fahrzeugen, Teilen und Objekten.</p>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--pri" href="#kontakt">Kostenloses Angebot anfragen</a>
+        <button class="btn btn--ghost" id="hMore" type="button">Mehr erfahren</button>
+      </div>
+    </div>
+    <div class="hero__media" id="hMedia">
+      <img class="is-on" src="assets/img/hero.jpg" alt="Lackieranlage der Tan GmbH in Düsseldorf" width="1920" height="1440" fetchpriority="high">
+      <div class="hero__arrows">
+        <button id="hPrev" type="button" aria-label="Vorherige Leistung">←</button>
+        <button id="hNext" type="button" aria-label="Nächste Leistung">→</button>
+      </div>
     </div>
   </div>
   <div class="wrap">
+    <div class="hero__tabs" id="hTabs"></div>
     <ul class="facts">
       <li><b data-count="1996" data-plain>1996</b><span>in der Branche seit</span></li>
       <li><b><span data-count="3000">3000</span> qm</b><span>Werkstattfläche</span></li>
@@ -160,8 +172,8 @@
       <h2>Rund um den Service für Ihr Fahrzeug</h2>
     </div>
     <div class="posts">
-      <a class="post" href="https://carservicetan.de/verdeckreinigung/" target="_blank" rel="noopener"><img src="assets/img/verdeck.jpg" alt="" width="1200" height="766" loading="lazy"><div><h3>Verdeckreinigung</h3><p>Ob automatisch oder klassisch per Hand: Das Verdeck schützt vor äußeren Einflüssen. So bleibt es lange schön.</p><span>Artikel lesen →</span></div></a>
-      <a class="post" href="https://carservicetan.de/lack-und-kleinschadenreperatur/" target="_blank" rel="noopener"><img src="assets/img/lack2.jpg" alt="" width="870" height="580" loading="lazy"><div><h3>Lack- und Kleinschadenreparatur</h3><p>Dellen und Beulen lackschadenfrei ausbeulen: Nicht immer muss nachlackiert werden.</p><span>Artikel lesen →</span></div></a>
+      <a class="post" href="ratgeber-verdeckreinigung.html"><img src="assets/img/verdeck.jpg" alt="" width="1200" height="766" loading="lazy"><div><h3>Verdeckreinigung</h3><p>Ob automatisch oder klassisch per Hand: Das Verdeck schützt vor äußeren Einflüssen. So bleibt es lange schön.</p><span>Artikel lesen →</span></div></a>
+      <a class="post" href="ratgeber-kleinschadenreparatur.html"><img src="assets/img/lack2.jpg" alt="" width="870" height="580" loading="lazy"><div><h3>Lack- und Kleinschadenreparatur</h3><p>Dellen und Beulen lackschadenfrei ausbeulen: Nicht immer muss nachlackiert werden.</p><span>Artikel lesen →</span></div></a>
     </div>
   </div>
 </section>
@@ -197,8 +209,8 @@
   <div class="wrap foot__in">
     <img src="assets/img/logo-weiss.png" alt="Car Service TAN" width="800" height="484" loading="lazy">
     <p>Seit 1996 als Car Cosmetic Tan in der Dienstleistungsbranche tätig. Angefangen mit Fahrzeugaufbereitung, erweitert um Smart Repair und Spot Repair, später um Fahrzeuglackierung.</p>
-    <nav aria-label="Rechtliches"><a href="https://carservicetan.de/impressum/" target="_blank" rel="noopener">Impressum</a><a href="https://carservicetan.de/datenschutzerklaerung/" target="_blank" rel="noopener">Datenschutz</a></nav>
-    <small>© 2026 Tan GmbH · Design-Entwurf, nicht die offizielle Webseite. Offizielle Seite: carservicetan.de</small>
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <small>© 2026 Tan GmbH · Tichauer Weg 21 · 40231 Düsseldorf</small>
   </div>
 </footer>
 

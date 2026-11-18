@@ -34,12 +34,12 @@ $('#gal').innerHTML = GAL.map(([n, l]) => `<button class="rv" data-src="${src(n)
 
 // Leistungs-Details
 const sheet = $('#sheet');
-$('#services').addEventListener('click', e => {
-  const b = e.target.closest('.svc'); if (!b) return;
-  const s = SERVICES[b.dataset.i];
+const openSvc = i => {
+  const s = SERVICES[i];
   $('#sheetImg').src = src(s.img); $('#sheetTitle').textContent = s.t + (s.sub ? ' – ' + s.sub : ''); $('#sheetText').innerHTML = s.html;
   sheet.showModal();
-});
+};
+$('#services').addEventListener('click', e => { const b = e.target.closest('.svc'); b && openSvc(+b.dataset.i); });
 // Galerie
 const light = $('#light');
 $('#gal').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $('#lightImg').src = b.dataset.src; light.showModal(); });
@@ -83,3 +83,56 @@ if (!reduce) document.querySelectorAll('[data-count]').forEach(el => {
 const links = [...nav.querySelectorAll('a')];
 const spy = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id))), { rootMargin: '-45% 0px -50% 0px' });
 links.forEach(a => { const s = $(a.getAttribute('href')); s && spy.observe(s); });
+
+// Hero-Slider: alle Leistungen
+const SLIDES = [
+  { c: 'Lackiererei', h: 'Lackierservice auf <em>höchstem Niveau.</em>', s: 'Autolackier-Meisterfachbetrieb mit Red-Eye &amp; Multi-Air System. Lackierung aller Art von Fahrzeugen, Teilen und Objekten.', img: 'hero', svc: 0 },
+  { c: 'Karosserie & Mechanik', h: 'Unfall? <em>Ein Anruf genügt.</em>', s: 'Karosseriearbeiten, Mechanik und Lack aus einer Hand. Abschleppen ist kostenlos, wenn Ihr Fahrzeug bei uns repariert wird.', img: 'betrieb1', go: '#kontakt' },
+  { c: 'Smart Repair', h: 'Smart Repair: <em>schnell und günstig.</em>', s: 'Kleine Beschädigungen an jeder Art von Fahrzeugen beheben wir schnell und kostengünstig.', img: 'smart', svc: 2 },
+  { c: 'Beulendoktor', h: 'Dellen raus, <em>Lack bleibt.</em>', s: 'Lackschadenfreie Ausbeultechnik: Nicht immer muss nach dem Ausbeulen nachlackiert werden.', img: 'dellen', svc: 3 },
+  { c: 'Felgenreparatur', h: 'Felgen wie neu, <em>glanzgedreht.</em>', s: 'Glanzdrehen von Leichtmetallfelgen bis 22 Zoll, ab 149,- € zzgl. MwSt. Mit Hol- und Bringservice im Umkreis von 20 km.', img: 'felgen', svc: 5 },
+  { c: 'Fahrzeugaufbereitung', h: 'Aufbereitung <em>bis ins Detail.</em>', s: 'Vom Motorrad bis zum LKW mit 7,5 Tonnen. Mit Trockeneis, Innenraum-Desinfektion und Ozonbehandlung.', img: 'aufbereitung', svc: 1 },
+  { c: 'Glasreparatur', h: 'Scheiben <em>reparieren und tauschen.</em>', s: 'Glasreparatur und Austausch von Fahrzeugscheiben, direkt bei uns im Haus.', img: 'glas', svc: 4 },
+  { c: 'Reifendienst', h: 'Reifendienst <em>und Einlagerung.</em>', s: 'Wechsel, Montage und Lagerung Ihrer Reifen an einem Ort.', img: 'reifen', svc: 6 },
+  { c: 'Oldtimer', h: 'Oldtimer, <em>mit Sorgfalt restauriert.</em>', s: 'Karosserie, Lack und Aufbereitung für Ihren Klassiker, aus einer Hand.', img: 'oldtimer', svc: 7 },
+  { c: 'Trockeneis-Strahlen', h: 'Sauber mit <em>Trockeneis.</em>', s: 'Schonende Reinigung ohne Wasser und ohne Rückstände.', img: 'trockeneis', svc: 8 },
+  { c: 'Gutachten', h: 'Kostenvoranschlag <em>und Gutachten.</em>', s: 'Transparente Kalkulationen und qualifizierte Gutachten für Privatpersonen, Unternehmen, Versicherungen und Behörden.', img: 'gutachten', svc: 9 },
+  { c: 'Fuhrparkservice', h: 'Ihr Fuhrpark <em>in besten Händen.</em>', s: 'Leasingrückgabe, Aufbereitung, Abschleppservice, Zulassung, Reifendienst und Lagerung.', img: 'halle', svc: 10 },
+  { c: 'Waschanlage', h: 'Doppel-Portal- <em>Waschanlage.</em>', s: 'Moderne Waschanlage direkt in unserer Halle.', img: 'wasch', svc: 11 },
+  { c: 'Ersatzfahrzeuge', h: 'Mobil bleiben, <em>ab 15 € pro Tag.</em>', s: 'Eigene Ersatzfahrzeuge für die Zeit Ihrer Reparatur, schnell und unkompliziert.', img: 'aussen', go: '#ersatz' }
+];
+(() => {
+  const hero = $('#top'), media = $('#hMedia'), copy = $('#hCopy'), tabs = $('#hTabs'), DUR = 6000;
+  let cur = 0, timer, paused = false;
+  const imgs = [media.querySelector('img')];
+  const img = i => imgs[i] || (imgs[i] = media.insertBefore(Object.assign(new Image(), { src: src(SLIDES[i].img), alt: SLIDES[i].c }), media.querySelector('.hero__arrows')));
+  tabs.innerHTML = SLIDES.map((s, i) => `<button type="button" data-i="${i}"${i ? '' : ' class="is-on"'}>${s.c}</button>`).join('');
+  const tb = [...tabs.children];
+  const arm = () => { clearTimeout(timer); if (!paused && !reduce) timer = setTimeout(() => go(cur + 1), DUR); };
+  const go = (n, user) => {
+    const i = (n + SLIDES.length) % SLIDES.length, s = SLIDES[i];
+    if (i !== cur) {
+      img(i); imgs.forEach((el, k) => el && el.classList.toggle('is-on', k === i));
+      copy.classList.add('is-out');
+      setTimeout(() => { $('#hNum').textContent = String(i + 1).padStart(2, '0'); $('#hCat').textContent = s.c; $('#hTitle').innerHTML = s.h; $('#hSub').innerHTML = s.s; copy.classList.remove('is-out'); }, 300);
+    }
+    tb.forEach((b, k) => b.classList.toggle('is-on', false));
+    void tabs.offsetWidth; tb[i].classList.add('is-on');
+    if (user || i !== cur) tabs.scrollTo({ left: tb[i].offsetLeft - tabs.offsetLeft - 20, behavior: reduce ? 'auto' : 'smooth' });
+    cur = i; img((i + 1) % SLIDES.length); arm();
+  };
+  const pause = p => { paused = p; hero.classList.toggle('is-paused', p); p ? clearTimeout(timer) : go(cur); };
+  tabs.addEventListener('click', e => { const b = e.target.closest('button'); b && go(+b.dataset.i, true); });
+  $('#hPrev').onclick = () => go(cur - 1, true); $('#hNext').onclick = () => go(cur + 1, true);
+  $('#hMore').onclick = () => { const s = SLIDES[cur]; s.go ? $(s.go).scrollIntoView() : openSvc(s.svc); };
+  const grid = hero.querySelector('.hero__grid');
+  grid.addEventListener('mouseenter', () => pause(true)); grid.addEventListener('mouseleave', () => pause(false));
+  grid.addEventListener('focusin', () => pause(true)); grid.addEventListener('focusout', () => pause(false));
+  document.addEventListener('visibilitychange', () => pause(document.hidden));
+  sheet.addEventListener('close', () => pause(false));
+  let x0 = null;
+  media.addEventListener('pointerdown', e => x0 = e.clientX);
+  media.addEventListener('pointerup', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 40) go(cur + (e.clientX < x0 ? 1 : -1), true); x0 = null; });
+  hero.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(cur + 1, true); if (e.key === 'ArrowLeft') go(cur - 1, true); });
+  img(1); arm();
+})();
