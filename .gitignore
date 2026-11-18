@@ -3,3 +3,5 @@ node_modules/
 .DS_Store
 .claude/
 *.log
+storyboards/*.png
+storyboards/*_4k.jpg

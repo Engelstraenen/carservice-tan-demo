@@ -37,6 +37,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 
 ## 9. Entschieden
 - 18.11.2026: Fassung 1 als statischer One-Pager (HTML/CSS/JS, keine Abhängigkeiten).
+- 18.11.2026: Neue Seite = Storyboard B WERKHALLE (GPT) + Lackier-Schieber (Idee aus A). Echte Halle und echtes Logo sind Pflicht.
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
