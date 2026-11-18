@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Car Service TAN | Lack. Karosserie. Glanz. – Design-Entwurf</title>
+<meta name="description" content="Tan GmbH, Lackiermeisterfachbetrieb in Düsseldorf: Lackiererei, Karosserie, Smart Repair, Felgenreparatur und Fahrzeugaufbereitung auf 3000 qm.">
+<link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/aussen.jpg" as="image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt</a>
+
+<header class="head" id="head">
+  <a class="logo" href="#top" aria-label="Car Service TAN – Startseite"><img src="assets/img/logo-weiss.png" alt="Car Service TAN GmbH" width="800" height="484"></a>
+  <nav class="nav" id="nav" aria-label="Hauptmenü">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#lack">Lackierung</a>
+    <a href="#halle">Betrieb</a>
+    <a href="#stimmen">Kundenstimmen</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <a class="btn btn--line" href="tel:+4921198911188">Termin</a>
+  <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+</header>
+
+<main id="main">
+
+<!-- 1 · Hero mit Hintergrundvideo -->
+<section class="hero" id="top">
+  <div class="vid" id="heroVid" data-clips="hero-tor,hero-halle" data-posters="aussen,halle"></div>
+  <div class="hero__in">
+    <h1>Lack.<br>Karosserie.<br><em>Glanz.</em></h1>
+    <p class="hero__sub">Lackiermeisterfachbetrieb in Düsseldorf. Seit 1996, auf 3000 qm, alles aus einer Hand.</p>
+    <div class="cta">
+      <a class="btn btn--pri" href="#kontakt">Termin</a>
+      <a class="btn btn--line" href="#leistungen">Leistungen</a>
+    </div>
+  </div>
+  <div class="hero__ctrl">
+    <div class="dots" id="heroDots"></div>
+    <button class="pp" id="heroPP" aria-label="Video anhalten"><i></i></button>
+  </div>
+</section>
+
+<!-- 2 · Video-Kacheln -->
+<section class="sec" id="leistungen">
+  <div class="wrap">
+    <p class="eyebrow">Leistungen</p>
+    <h2>Was wir für Ihr Fahrzeug tun</h2>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</section>
+
+<!-- 3 · Lackier-Schieber -->
+<section class="sec sec--deep" id="lack">
+  <div class="wrap">
+    <div class="lack__head">
+      <div>
+        <p class="eyebrow">Lackierung</p>
+        <h2>Ziehen Sie den Lack auf.</h2>
+        <p class="lead">Schieben Sie von links nach rechts: vorher unlackiert, nachher wie neu.</p>
+      </div>
+      <div class="swatches" id="swatches" role="group" aria-label="Neue Farbe wählen"></div>
+    </div>
+    <div class="ba" id="ba">
+      <img class="ba__before" src="assets/img/kabine.jpg" alt="Fahrzeug vor der Lackierung in unserer Lackierkabine" width="2560" height="1920" loading="lazy">
+      <div class="ba__after" id="baAfter"><img src="assets/img/kabine.jpg" alt="Fahrzeug nach der Lackierung" width="2560" height="1920" loading="lazy"></div>
+      <canvas class="ba__mist" id="baMist" aria-hidden="true"></canvas>
+      <span class="ba__tag ba__tag--l">Nachher</span>
+      <span class="ba__tag ba__tag--r">Vorher</span>
+      <div class="ba__bar" id="baBar"><span class="ba__knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      <input class="ba__range" id="baRange" type="range" min="0" max="100" value="8" aria-label="Lackierung aufziehen">
+    </div>
+    <ul class="lack__list">
+      <li>Lackierung aller Art von Fahrzeugen</li><li>Teile- und Felgenlackierungen</li><li>Industrie- und Effektlackierungen</li><li>Red-Eye &amp; Multi-Air System, Wasserbasislacke</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 · Halle als Videoband -->
+<section class="band" id="halle">
+  <div class="vid" data-clips="halle" data-posters="halle"></div>
+  <div class="band__in">
+    <h2>Alles aus einer Hand</h2>
+    <p>Lack, Karosserie, Mechanik, Reifen, Felgen, Aufbereitung: ein Ansprechpartner, kürzere Reparaturzeiten.</p>
+  </div>
+</section>
+
+<!-- 5 · Waschanlage + Fakten -->
+<section class="split">
+  <div class="split__vid"><div class="vid" data-clips="wasch" data-posters="wasch"></div></div>
+  <div class="split__txt">
+    <h2>Seit 1996</h2>
+    <p>Angefangen mit Fahrzeugaufbereitung, erweitert um Smart Repair und Spot Repair, später um Fahrzeuglackierung. Lackiermeisterfachbetrieb, eingetragen in der Handwerksrolle Düsseldorf.</p>
+    <ul class="facts">
+      <li><b><span data-count="3000">3000</span> m²</b><span>Werkstatthalle</span></li>
+      <li><b data-count="150">150</b><span>Stellplätze auf eigenem Gelände</span></li>
+      <li><b>DEKRA</b><span>geprüft und zertifiziert</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6 · Leistungsliste -->
+<section class="sec" id="liste">
+  <div class="wrap">
+    <p class="eyebrow">Alle Leistungen</p>
+    <div class="rows" id="rows"></div>
+  </div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+</section>
+
+<!-- 7 · Kundenstimmen -->
+<section class="band band--soft" id="stimmen">
+  <div class="vid vid--blur" data-clips="halle" data-posters="betrieb1"></div>
+  <div class="wrap">
+    <p class="eyebrow">Kundenstimmen</p>
+    <h2>Das sagen unsere Kunden</h2>
+    <div class="quotes">
+      <figure><div class="stars" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>Preise korrekt und fair. Arbeit sauber, ordnungsgemäß, detailliert. Ich bringe mein Auto seit Jahren immer hin.</blockquote><figcaption>CM CM</figcaption></figure>
+      <figure><div class="stars" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>Kostenlosen Leihwagen bekommen und die Lackierung war auch top, nur zu empfehlen.</blockquote><figcaption>Bastian Schmelich</figcaption></figure>
+      <figure><div class="stars" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>Top Service, sehr freundliches Personal und ein gutes Ergebnis. Zudem gründliche Reinigung von außen und innen!</blockquote><figcaption>Armando Vasquez</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Kontakt -->
+<section class="contact" id="kontakt">
+  <img src="assets/img/aussen.jpg" alt="Halle der Car Service Tan GmbH am Tichauer Weg 21" width="1280" height="853" loading="lazy">
+  <div class="contact__in">
+    <p class="eyebrow">Kontakt</p>
+    <a class="tel" href="tel:+4921198911188">0211 989 111 88</a>
+    <p class="addr">Tichauer Weg 21, 40231 Düsseldorf<br>Mo–Fr 08:00–18:00 · Sa 08:00–13:00</p>
+    <div class="cta">
+      <a class="btn btn--pri" href="mailto:info@carservicetan.de?subject=Terminanfrage">Termin anfragen</a>
+      <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&destination=Tichauer+Weg+21,+40231+D%C3%BCsseldorf" target="_blank" rel="noopener">Route planen</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <img src="assets/img/logo-weiss.png" alt="Car Service TAN GmbH" width="800" height="484" loading="lazy">
+  <nav aria-label="Rechtliches"><a href="../modern/impressum.html">Impressum</a><a href="../modern/datenschutz.html">Datenschutz</a></nav>
+  <small>© 2026 Tan GmbH · Tichauer Weg 21 · 40231 Düsseldorf</small>
+</footer>
+
+<a class="callbar" href="tel:+4921198911188">Jetzt anrufen · 0211 989 111 88</a>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <button class="sheet__x" id="sheetX" aria-label="Schließen">×</button>
+  <img id="sheetImg" alt="">
+  <div class="sheet__body"><h3 id="sheetTitle"></h3><div id="sheetText"></div><a class="btn btn--pri" href="tel:+4921198911188">Anrufen und Termin vereinbaren</a></div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

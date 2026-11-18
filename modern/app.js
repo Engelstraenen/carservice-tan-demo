@@ -24,7 +24,7 @@ const CARS = [
   { n: 'VW Golf GTI TSI', p: '65,00', f: ['Automatik', '5 Türen', 'Klima', 'Mittelklasse'] }
 ];
 
-const GAL = [['betrieb', 'Unser Betrieb'], ['lambo', 'Lackieranlage'], ['buero', 'Bürotrakt'], ['lack2', 'Lackiererei'], ['aufbereitung', 'Fahrzeugaufbereitung'], ['aussen', 'Tichauer Weg 21'], ['wasch', 'Autowaschanlage'], ['betrieb1', 'Unser Betrieb'], ['betrieb2', 'Unser Betrieb'], ['hero', 'Lackieranlage']];
+const GAL = [['betrieb', 'Unser Betrieb'], ['lambo', 'Kundenfahrzeug'], ['buero', 'Bürotrakt'], ['lack2', 'Lackiererei'], ['aufbereitung', 'Fahrzeugaufbereitung'], ['aussen', 'Tichauer Weg 21'], ['wasch', 'Autowaschanlage'], ['betrieb1', 'Unser Betrieb'], ['betrieb2', 'Unser Betrieb'], ['hero', 'Lackieranlage']];
 
 const src = n => `assets/img/${n}.jpg`;
 
