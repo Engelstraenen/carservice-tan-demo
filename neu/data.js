@@ -1,5 +1,5 @@
 // Fertige Medien hier eintragen: Videos als assets/video/<name>.mp4, Schieber-Bilder als assets/img/lack-vorher.jpg + lack-nachher.jpg
-const MEDIA = { videos: [], lack: false };
+const MEDIA = { videos: ['hero-tor'], lack: false };
 const ul = a => '<ul>' + a.map(x => `<li>${x}</li>`).join('') + '</ul>';
 const SERVICES = [
   { t: 'Lackiererei', img: 'lack1', html: '<p><b>Autolackier-Meisterfachbetrieb.</b> Haben Sie Lackschäden bemerkt oder hatten Sie einen Unfall? Die Tan GmbH erstellt Ihnen ein kostenloses und unverbindliches Angebot und steht Ihnen mit kompetenter Beratung zur Seite.</p>' + ul(['Lackierung aller Art von Fahrzeugen', 'Teile-Lackierungen', 'Industrie-Lackierungen', 'Felgen-Lackierungen', 'Lackierung von mobilen Objekten', 'Effekt-Lackierungen']) },
