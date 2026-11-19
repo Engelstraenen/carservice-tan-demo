@@ -13,7 +13,7 @@ Quelle aller Inhalte: https://carservicetan.de (WordPress, Theme von inoya). Mar
 - Entwürfe tragen `noindex` und „Design-Entwurf“ im Seitentitel. Tan GmbH ist ein Kollege von Eugen: Seite wird ihm geschenkt, Eugen will sie als Referenz zeigen. Muss komplett sein (eigenes Impressum, Datenschutz, Ratgeber), keine Links zur alten Seite.
 - Kein Zugriff auf das echte WordPress; Live-Domain nur nach OK.
 - KEIN ONE-PAGER (Eugen 19.11.2026): wirkt billig. Jeder Punkt der Originalseite bekommt eine eigene Unterseite, jede Leistungsseite ein durchlaufendes Video, auf dem sichtbar etwas passiert (nicht nur leichter Zoom).
-- GRUNDRISS (Eugen 19.11.2026): Tor → kurzer Gang (rote Türen rechts) → direkt links öffnet sich die große Halle; auf dem Hallenfoto liegt dieser Zugang hinten rechts. Jede Kamerafahrt muss dazu passen.
+- GRUNDRISS (Eugen 19.11.2026, endgültig): Hinter dem großen Tor liegt sofort die riesige freie Hallenfläche (links), rechts die Türenreihe/das weiße Häuschen. Im Hallenfoto `carservicetan-halle.jpg` ist das Tor RECHTS, wo das helle Licht hereinkommt, neben dem weißen Häuschen. Der Hallen-Film aus diesem Foto ist der Maßstab für den Look. Kein eigener Gang.
 - Echte Halle, echtes Gebäude mit Logo in Videos und Bildern (Quellen in `neu/quellen/`). Hero-Testfilm 1 (nur leichte Fahrt) war Eugen zu wenig.
 - Prüfen nur unsichtbar: `node tools/shot.mjs <ordner> 1440x900 <urls>` (Chrome headless, Ganzseiten-Fotos + Konsolenfehler). Nie Seiten auf Eugens Mac öffnen, auch nicht das Browser-Panel.
 - Leere Originalseiten (Glas, Reifen, Oldtimer, Trockeneis) haben von Claude geschriebene Kurztexte: vor Livegang vom Betrieb bestätigen lassen.
