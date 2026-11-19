@@ -18,6 +18,7 @@ Quelle aller Inhalte: https://carservicetan.de (WordPress, Theme von inoya). Mar
 - Prüfen nur unsichtbar: `node tools/shot.mjs <ordner> 1440x900 <urls>` (Chrome headless, Ganzseiten-Fotos + Konsolenfehler). Nie Seiten auf Eugens Mac öffnen, auch nicht das Browser-Panel.
 - Leere Originalseiten (Glas, Reifen, Oldtimer, Trockeneis) haben von Claude geschriebene Kurztexte: vor Livegang vom Betrieb bestätigen lassen.
 - Fotos stammen von carservicetan.de; die Motive aus 2025/01 (Dellen, Glas, Reifen, Gutachten) sind vermutlich Stockfotos, vor Livegang Rechte klären oder ersetzen.
+- LEISTUNGSFILME NUR NACH RECHERCHE (Eugen 19.11.2026): Jeder Leistungsfilm zeigt den echten Arbeitsschritt so, wie er in Fachbetrieben gemacht wird. Vor jedem Startbild 2–3 echte Werkstattvideos ansehen und den Ablauf in `verlauf/` festhalten. Felgen = Glanzdrehen auf CNC-Drehmaschine (Tür zu, Meißel, Späne), nie Flex/Schleifen.
 - Telefon-Link der Originalseite ist fehlerhaft (tel:0049121198911188), hier korrigiert auf +4921198911188.
 
 ## 4. Skills, Plugins, Agenten, MCP
