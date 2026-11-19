@@ -3,7 +3,7 @@
 Inhalte stehen unten (SERVICES, CARS, GALLERY, FAQ). Rechtstexte/Ratgeber liegen in _texte/."""
 import os, re, html
 HERE = os.path.dirname(os.path.abspath(__file__))
-V = '15'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
+V = '16'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
 TEL, TELH = '0211 989 111 88', 'tel:+4921198911188'
 
 def ul(items): return '<ul class="ticks">' + ''.join(f'<li>{i}</li>' for i in items) + '</ul>'
@@ -60,7 +60,7 @@ SERVICES = [
       list=['Außenwäsche in der Doppel-Portal-Anlage','Kombinierbar mit der Fahrzeugaufbereitung']),
 ]
 CARS = [('VW Golf 8 1,6 TDI','15,00',['Gangschaltung','5 Personen','Klima','Kleinwagen']),('Citroën C3','15,00',['Gangschaltung','5 Personen','Klima']),('Citroën C4','15,00',['Automatik','5 Türen','Klima','Mittelklasse']),('Citroën Jumper','55,00',['Gangschaltung','Transporter','Klima']),('VW Golf GTI TSI','65,00',['Automatik','5 Türen','Klima','Mittelklasse'])]
-GALLERY = [('betrieb','Unser Betrieb','betrieb'),('kabine','Lackieranlage','lack'),('halle','Arbeitshalle','betrieb'),('aussen','Tichauer Weg 21','betrieb'),('lack1','Lackiererei','lack'),('lambo','Kundenfahrzeug','aufbereitung'),('aufbereitung','Fahrzeugaufbereitung','aufbereitung'),('wasch','Autowaschanlage','aufbereitung'),('buero','Bürotrakt','betrieb'),('lack2','Lackiererei','lack'),('felgen','Felgenreparatur','werkstatt'),('betrieb1','Unser Betrieb','betrieb'),('smart','Smart Repair','werkstatt'),('betrieb2','Unser Betrieb','betrieb'),('trockeneis','Trockeneis-Strahlen','werkstatt'),('oldtimer','Oldtimer','werkstatt')]
+GALLERY = [('betrieb','Unser Betrieb','betrieb'),('halle-hoch','Arbeitshalle','betrieb'),('kabine-aussen','Lackieranlage','lack'),('tueren','Technik- und Sozialräume','betrieb'),('halle-hoch2','Arbeitshalle','betrieb'),('wohnmobil','Wohnmobil in Arbeit','werkstatt'),('kabine-leer','Lackierkabine','lack'),('aussen2','Tichauer Weg 21','betrieb'),('kabine','Lackieranlage','lack'),('halle','Arbeitshalle','betrieb'),('aussen','Tichauer Weg 21','betrieb'),('lack1','Lackiererei','lack'),('lambo','Kundenfahrzeug','aufbereitung'),('aufbereitung','Fahrzeugaufbereitung','aufbereitung'),('wasch','Autowaschanlage','aufbereitung'),('buero','Bürotrakt','betrieb'),('lack2','Lackiererei','lack'),('felgen','Felgenreparatur','werkstatt'),('betrieb1','Unser Betrieb','betrieb'),('smart','Smart Repair','werkstatt'),('betrieb2','Unser Betrieb','betrieb'),('trockeneis','Trockeneis-Strahlen','werkstatt'),('oldtimer','Oldtimer','werkstatt')]
 FAQ = [('Ich habe einen Unfall, was soll ich machen?',f'Ein Anruf genügt, wir werden alles für Sie in die Wege leiten: <a href="{TELH}">{TEL}</a>.'),('Bekomme ich während der Reparaturzeit ein Ersatzfahrzeug?','In den meisten Fällen ja. Unsere <a href="ersatzfahrzeuge.html">Ersatzfahrzeuge</a> stehen in Verbindung mit einem Reparaturauftrag bereit.'),('Können Sie mein Unfallfahrzeug abschleppen?','Wenn Ihr Fahrzeug bei uns repariert wird, ist diese Leistung für Sie kostenlos.'),('Was kostet eine Felgenreparatur?','Glanzdrehen von Leichtmetallfelgen ab 149,- € zzgl. MwSt., abhängig von Zustand und Größe der Felge (bis 22 Zoll). Mehr zur <a href="leistung-felgenreparatur.html">Felgenreparatur</a>.'),('Was kostet ein Angebot?','Nichts. Die Tan GmbH erstellt Ihnen ein kostenloses und unverbindliches Angebot.')]
 STEPS = [('Anrufen','Ein Anruf genügt. Wir vereinbaren einen Termin ohne lange Wartezeit.'),('Angebot','Wir sehen uns Ihr Fahrzeug an. Das Angebot ist kostenlos und unverbindlich.'),('Arbeit in unserer Halle','Alles aus einer Hand auf 3000 qm. Sie haben nur einen Ansprechpartner.'),('Abholen','In den meisten Fällen bleiben Sie mit einem Ersatzfahrzeug mobil.')]
 QUOTES = [('Preise korrekt und fair. Arbeit sauber, ordnungsgemäß, detailliert. Ich bringe mein Auto seit Jahren immer hin.','CM CM'),('Kostenlosen Leihwagen bekommen und die Lackierung war auch top, nur zu empfehlen.','Bastian Schmelich'),('Top Service, sehr freundliches Personal und ein gutes Ergebnis. Zudem gründliche Reinigung von außen und innen!','Armando Vasquez'),('Top Laden, netter Chef! Sehr zu empfehlen! Gruß aus Augsburg.','Chris M')]
@@ -158,12 +158,12 @@ page('index.html', 'Lack. Karosserie. Glanz.', f'''
 <section class="split"><div class="split__vid"><div class="vid" data-clips="svc-waschanlage" data-posters="wasch"></div></div><div class="split__txt"><h2>Seit 1996</h2><p>Angefangen mit Fahrzeugaufbereitung, erweitert um Smart Repair und Spot Repair, später um Fahrzeuglackierung. Lackiermeisterfachbetrieb, eingetragen in der Handwerksrolle Düsseldorf.</p>
   <ul class="facts"><li><b><span data-count="3000">3000</span> m²</b><span>Werkstatthalle</span></li><li><b data-count="150">150</b><span>Stellplätze auf eigenem Gelände</span></li><li><b>DEKRA</b><span>geprüft und zertifiziert</span></li></ul></div></section>
 <section class="sec"><div class="wrap"><p class="eyebrow">Alle Leistungen</p><div class="rows" id="rows">{''.join(f'<a class="row" href="leistung-{s["slug"]}.html" data-img="{img(s["img"])}">{s["t"]}<span>→</span></a>' for s in SERVICES)}</div></div><div class="peek" id="peek" aria-hidden="true"><img alt=""></div></section>
-<section class="band band--soft"><div class="vid vid--blur" data-clips="halle" data-posters="betrieb1"></div><div class="wrap"><p class="eyebrow">Kundenstimmen</p><h2>Das sagen unsere Kunden</h2>{quotes()}</div></section>
+<section class="band band--soft"><div class="vid vid--blur" data-clips="page-stimmen" data-posters="halle-hoch2"></div><div class="wrap"><p class="eyebrow">Kundenstimmen</p><h2>Das sagen unsere Kunden</h2>{quotes()}</div></section>
 {CTA}''', active='', preload=img('aussen'))
 
 # ---------- Leistungen (Übersicht) ----------
-page('leistungen.html', 'Leistungen', hero('halle', 'halle', 'Leistungen', 'Rund-um-Service <em>für Ihr Fahrzeug.</em>', 'Lange Jahre Erfahrung und sorgfältige Arbeit zeichnen uns aus. Alles unter einem Dach am Tichauer Weg 21.', crumbs=[('index.html', 'Start'), ('', 'Leistungen')]) +
-     f'<section class="sec"><div class="wrap"><div class="cards">{"".join(tile(s, "card") for s in SERVICES)}</div></div></section><section class="sec sec--deep"><div class="wrap"><p class="eyebrow">So läuft es ab</p><h2>In vier Schritten zurück auf die Straße</h2>{steps}</div></section>' + CTA, active='leistungen', preload=img('halle'))
+page('leistungen.html', 'Leistungen', hero('page-leistungen', 'kabine-aussen', 'Leistungen', 'Rund-um-Service <em>für Ihr Fahrzeug.</em>', 'Lange Jahre Erfahrung und sorgfältige Arbeit zeichnen uns aus. Alles unter einem Dach am Tichauer Weg 21.', crumbs=[('index.html', 'Start'), ('', 'Leistungen')]) +
+     f'<section class="sec"><div class="wrap"><div class="cards">{"".join(tile(s, "card") for s in SERVICES)}</div></div></section><section class="sec sec--deep"><div class="wrap"><p class="eyebrow">So läuft es ab</p><h2>In vier Schritten zurück auf die Straße</h2>{steps}</div></section>' + CTA, active='leistungen', preload=img('kabine-aussen'))
 
 # ---------- Unterseite je Leistung ----------
 for i, s in enumerate(SERVICES):
@@ -187,21 +187,21 @@ page('ueber-uns.html', 'Über uns', hero('halle', 'betrieb', 'Über uns', 'Ein A
 {ul(['Lack-Vorbereitungsplätze mit Prepkleen für staubfreie Vorbereitung','Lackieranlage mit Wärmerückgewinnung, Red-Eye und Multi-Air System von Wolf, für Wasserbasislacke','Fülleranlage, Lackmischraum, Gefahrstofflager','Aufbereitungsplätze und Doppel-Portal-Waschanlage','Arbeitsplätze für Karosserie, Mechanik, Reifendienst, Felgenreparatur, Smart Repair und Dellenbeseitigung','Mehrere Hebebühnen, Sozialräume, Bürotrakt, Kundenwartebereich'])}</div>
 <aside class="detail__card rv"><ul class="facts"><li><b data-count="1996">1996</b><span>in der Branche seit</span></li><li><b><span data-count="3000">3000</span> m²</b><span>Werkstatthalle</span></li><li><b data-count="150">150</b><span>Stellplätze</span></li><li><b>DEKRA</b><span>geprüft und zertifiziert</span></li></ul></aside></div></section>
 <section class="strip">{"".join(f'<button class="rv" data-src="{img(m)}" data-cap="{c}"><img src="{img(m)}" alt="{c}" loading="lazy"></button>' for m, c in [("aussen","Tichauer Weg 21"),("kabine","Lackieranlage"),("buero","Bürotrakt")])}</section>
-<section class="band band--soft"><div class="vid vid--blur" data-clips="halle" data-posters="betrieb1"></div><div class="wrap"><p class="eyebrow">Kundenstimmen</p><h2>Das sagen unsere Kunden</h2>{quotes(4)}</div></section>''' + CTA, active='ueber', preload=img('betrieb'))
+<section class="band band--soft"><div class="vid vid--blur" data-clips="page-stimmen2" data-posters="wohnmobil"></div><div class="wrap"><p class="eyebrow">Kundenstimmen</p><h2>Das sagen unsere Kunden</h2>{quotes(4)}</div></section>''' + CTA, active='ueber', preload=img('betrieb'))
 
 # ---------- Ersatzfahrzeuge ----------
 cars = ''.join(f'<article class="car rv"><h3>{n}</h3><div class="car__p">{p} € <small>/ Tag inkl. MwSt.</small></div><ul>{"".join(f"<li>{f}</li>" for f in fs)}</ul><a class="btn btn--line" href="mailto:info@carservicetan.de?subject=Anfrage%20Ersatzfahrzeug%20{n.replace(" ", "%20")}">Jetzt anfragen</a></article>' for n, p, fs in CARS)
-page('ersatzfahrzeuge.html', 'Ersatzfahrzeuge', hero('hero-tor', 'aussen', 'Ersatzfahrzeuge', 'Mobil bleiben, <em>ab 15 € pro Tag.</em>', 'Für unsere Kunden sichern wir die Mobilität mit eigenen Ersatzfahrzeugen, schnell und unkompliziert.', crumbs=[('index.html', 'Start'), ('', 'Ersatzfahrzeuge')]) +
+page('ersatzfahrzeuge.html', 'Ersatzfahrzeuge', hero('page-ersatz', 'betrieb', 'Ersatzfahrzeuge', 'Mobil bleiben, <em>ab 15 € pro Tag.</em>', 'Für unsere Kunden sichern wir die Mobilität mit eigenen Ersatzfahrzeugen, schnell und unkompliziert.', crumbs=[('index.html', 'Start'), ('', 'Ersatzfahrzeuge')]) +
      f'<section class="sec"><div class="wrap"><p class="eyebrow">Unsere Fahrzeuge</p><h2>Fünf Wagen für die Zeit Ihrer Reparatur</h2><p class="lead">Die Nutzung unserer Ersatzfahrzeuge steht ausschließlich in Verbindung mit einem Reparaturauftrag.</p><div class="cars">{cars}</div></div></section>' + CTA, active='ersatz', preload=img('aussen'))
 
 # ---------- Galerie ----------
 chips = ''.join(f'<button data-f="{k}"{" class=\"is-on\"" if k == "alle" else ""}>{l}</button>' for k, l in [('alle', 'Alle'), ('betrieb', 'Betrieb'), ('lack', 'Lackieranlage'), ('aufbereitung', 'Aufbereitung'), ('werkstatt', 'Werkstatt')])
 gal = ''.join(f'<button class="rv" data-src="{img(n)}" data-cap="{c}" data-k="{k}"><img src="{img(n)}" alt="{c}" loading="lazy"><span>{c}</span></button>' for n, c, k in GALLERY)
-page('galerie.html', 'Galerie', hero('halle', 'kabine', 'Galerie', 'Ein Blick <em>in den Betrieb.</em>', '3000 qm am Tichauer Weg 21: Halle, Lackieranlage, Aufbereitung und Waschanlage.', cta=False, crumbs=[('index.html', 'Start'), ('', 'Galerie')]) +
+page('galerie.html', 'Galerie', hero('page-galerie', 'halle-hoch', 'Galerie', 'Ein Blick <em>in den Betrieb.</em>', '3000 qm am Tichauer Weg 21: Halle, Lackieranlage, Aufbereitung und Waschanlage.', cta=False, crumbs=[('index.html', 'Start'), ('', 'Galerie')]) +
      f'<section class="sec"><div class="wrap"><div class="chips" id="chips">{chips}</div><div class="masonry" id="gal">{gal}</div></div></section>' + CTA, active='galerie', preload=img('kabine'))
 
 # ---------- FAQ ----------
-page('faq.html', 'FAQ', hero('hero-tor', 'buero', 'FAQ', 'Die meistgestellten <em>Fragen.</em>', 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns.', cta=False, crumbs=[('index.html', 'Start'), ('', 'FAQ')]) +
+page('faq.html', 'FAQ', hero('page-faq', 'tueren', 'FAQ', 'Die meistgestellten <em>Fragen.</em>', 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns.', cta=False, crumbs=[('index.html', 'Start'), ('', 'FAQ')]) +
      '<section class="sec"><div class="narrow">' + ''.join(f'<details class="q rv"{" open" if k == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for k, (q, a) in enumerate(FAQ)) + '</div></section>' + CTA, active='faq', preload=img('buero'))
 
 # ---------- Kontakt ----------
@@ -214,10 +214,10 @@ page('kontakt.html', 'Kontakt', hero('hero-tor', 'aussen', 'Kontakt', 'Ein Anruf
 # ---------- Ratgeber, Impressum, Datenschutz (Texte aus _texte/) ----------
 def text(name): return open(os.path.join(HERE, '_texte', name + '.html'), encoding='utf-8').read()
 ARTICLES = [('ratgeber-verdeckreinigung', 'Verdeckreinigung', 'verdeck', 'Ob automatisch oder klassisch per Hand: Das Verdeck schützt vor äußeren Einflüssen. So bleibt es lange schön.'), ('ratgeber-kleinschadenreparatur', 'Lack- und Kleinschadenreparatur', 'lack2', 'Dellen und Beulen lackschadenfrei ausbeulen: Nicht immer muss nachlackiert werden.')]
-page('ratgeber.html', 'Ratgeber', hero('halle', 'verdeck', 'Ratgeber', 'Rund um den Service <em>für Ihr Fahrzeug.</em>', cta=False, crumbs=[('index.html', 'Start'), ('', 'Ratgeber')]) +
+page('ratgeber.html', 'Ratgeber', hero('page-ratgeber', 'verdeck', 'Ratgeber', 'Rund um den Service <em>für Ihr Fahrzeug.</em>', cta=False, crumbs=[('index.html', 'Start'), ('', 'Ratgeber')]) +
      '<section class="sec"><div class="wrap posts">' + ''.join(f'<a class="post rv" href="{fn}.html"><img src="{img(im)}" alt="" loading="lazy"><div><h3>{t}</h3><p>{d}</p><span class="more">Artikel lesen →</span></div></a>' for fn, t, im, d in ARTICLES) + '</div></section>' + CTA, active='ratgeber', preload=img('verdeck'))
 for fn, t, im, d in ARTICLES:
-    page(fn + '.html', t, hero('halle', im, 'Ratgeber', t, d, cta=False, crumbs=[('index.html', 'Start'), ('ratgeber.html', 'Ratgeber'), ('', t)]) + f'<article class="narrow prose">{text(fn)}<p class="back"><a class="btn btn--line" href="ratgeber.html">← Alle Artikel</a></p></article>' + CTA, desc=d, active='ratgeber', preload=img(im))
+    page(fn + '.html', t, hero('page-' + fn, im, 'Ratgeber', t, d, cta=False, crumbs=[('index.html', 'Start'), ('ratgeber.html', 'Ratgeber'), ('', t)]) + f'<article class="narrow prose">{text(fn)}<p class="back"><a class="btn btn--line" href="ratgeber.html">← Alle Artikel</a></p></article>' + CTA, desc=d, active='ratgeber', preload=img(im))
 for fn, t in [('impressum', 'Impressum'), ('datenschutz', 'Datenschutzerklärung')]:
     page(fn + '.html', t, f'<section class="subhero"><div class="narrow"><p class="eyebrow">Rechtliches</p><h1>{t}</h1></div></section><article class="narrow prose">{text(fn)}</article>')
 print('Seiten:', len([f for f in os.listdir(HERE) if f.endswith('.html')]))
