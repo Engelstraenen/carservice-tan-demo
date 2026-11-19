@@ -59,10 +59,10 @@ $('#rows').addEventListener('mousemove', e => { peek.style.left = Math.min(e.cli
 /* ---------- Lackier-Schieber ---------- */
 (() => {
   const ba = $('#ba'), range = $('#baRange'), cv = $('#baMist'), ctx = cv.getContext('2d');
-  const COLORS = [['Blau', '#0b4b8a', 0], ['Rot', '#b3161b', 150], ['Grün', '#0f6b3c', -70], ['Orange', '#e56d18', 175], ['Schwarz', '#14171c', 0]];
+  const COLORS = [['Blau', '#0b4b8a', 'none'], ['Rot', '#b3161b', 'hue-rotate(142deg) saturate(1.9) brightness(1.12)'], ['Grün', '#0f6b3c', 'hue-rotate(-72deg) saturate(.9)'], ['Orange', '#e56d18', 'hue-rotate(172deg) saturate(1.5) brightness(1.55)'], ['Schwarz', '#14171c', 'saturate(0) brightness(.38) contrast(1.25)']];
   let pos = 8, last = 8, parts = [], raf, paint = COLORS[0][1], touched = false;
   $('#swatches').innerHTML = COLORS.map((c, i) => `<button style="background:${c[1]}" aria-label="${c[0]}" data-i="${i}"${i ? '' : ' class="is-on"'}></button>`).join('');
-  $('#swatches').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const c = COLORS[b.dataset.i]; paint = c[1]; ba.style.setProperty('--paint', c[1]); ba.style.setProperty('--hue', c[2] + 'deg'); [...$('#swatches').children].forEach(x => x.classList.toggle('is-on', x === b)); burst(40); });
+  $('#swatches').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const c = COLORS[b.dataset.i]; paint = c[1]; ba.style.setProperty('--paint', c[1]); ba.style.setProperty('--tint', c[2]); [...$('#swatches').children].forEach(x => x.classList.toggle('is-on', x === b)); burst(40); });
   const size = () => { const r = ba.getBoundingClientRect(); cv.width = r.width; cv.height = r.height; };
   addEventListener('resize', size); size();
   const burst = n => { if (reduce) return; const x = cv.width * pos / 100; for (let i = 0; i < n; i++) parts.push({ x: x + (Math.random() - .3) * 14, y: Math.random() * cv.height, vx: 1 + Math.random() * 3.5, vy: (Math.random() - .5) * 1.2, r: 2 + Math.random() * 16, a: .28 + Math.random() * .3 }); if (!raf) raf = requestAnimationFrame(draw); };
@@ -81,7 +81,7 @@ $('#rows').addEventListener('mousemove', e => { peek.style.left = Math.min(e.cli
     requestAnimationFrame(run);
   }, { threshold: .45 }).observe(ba);
   // echte Vorher/Nachher-Bilder verwenden, sobald sie da sind
-  if (MEDIA.lack) { ba.classList.add('ba--real'); ba.querySelector('.ba__before').src = src('lack-vorher'); $('#baAfter img').src = src('lack-nachher'); }
+  if (MEDIA.lack) { ba.classList.add('ba--real'); const set2 = (el, n) => { el.srcset = `${src(n + '-1800')} 1800w, ${src(n)} 3840w`; el.sizes = '(max-width: 1328px) 100vw, 1280px'; el.src = src(n); }; set2(ba.querySelector('.ba__before'), 'lack-vorher'); ba.querySelectorAll('#baAfter img').forEach(i => set2(i, 'lack-nachher')); }
 })();
 
 /* ---------- Kopfzeile, Menü, Einblenden, Zähler ---------- */

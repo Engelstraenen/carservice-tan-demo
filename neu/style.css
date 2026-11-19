@@ -81,7 +81,8 @@ a{color:var(--cy)}
 .ba__after::after{content:"";position:absolute;inset:0;background:var(--paint);mix-blend-mode:color;opacity:.55}
 .ba--real .ba__before{filter:none}
 .ba--real .ba__after::after{display:none}
-.ba--real .ba__after img{filter:hue-rotate(var(--hue,0deg))}
+.ba__tint{display:none}
+.ba--real .ba__tint{display:block;filter:var(--tint,none);-webkit-mask:url(assets/img/lack-maske.png) center/cover no-repeat;mask:url(assets/img/lack-maske.png) center/cover no-repeat;transition:filter .5s}
 .ba__mist{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ba__bar{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 24px 6px rgba(255,255,255,.55),0 0 60px 20px var(--paint);pointer-events:none}
 .ba__knob{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px;border-radius:50%;background:#fff;color:var(--bg);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
