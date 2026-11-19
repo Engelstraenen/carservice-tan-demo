@@ -3,7 +3,7 @@
 Inhalte stehen unten (SERVICES, CARS, GALLERY, FAQ). Rechtstexte/Ratgeber liegen in _texte/."""
 import os, re, html
 HERE = os.path.dirname(os.path.abspath(__file__))
-V = '10'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
+V = '11'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
 TEL, TELH = '0211 989 111 88', 'tel:+4921198911188'
 
 def ul(items): return '<ul class="ticks">' + ''.join(f'<li>{i}</li>' for i in items) + '</ul>'
@@ -147,7 +147,7 @@ steps = '<ol class="steps">' + ''.join(f'<li class="rv"><b>{t}</b><span>{d}</spa
 # ---------- Startseite ----------
 page('index.html', 'Lack. Karosserie. Glanz.', f'''
 <section class="hero hero--tall" id="top">
-  <div class="vid" id="heroVid" data-clips="hero-tor,hero-halle" data-posters="aussen,halle"></div>
+  <div class="vid" id="heroVid" data-clips="hero-tor" data-posters="aussen"></div>
   <div class="hero__in"><h1>Lack.<br>Karosserie.<br><em>Glanz.</em></h1><p class="hero__sub">Lackiermeisterfachbetrieb in Düsseldorf. Seit 1996, auf 3000 qm, alles aus einer Hand.</p><div class="cta"><a class="btn btn--pri" href="kontakt.html">Termin</a><a class="btn btn--line" href="leistungen.html">Leistungen</a></div></div>
   <div class="hero__ctrl"><div class="dots" id="heroDots"></div></div><button class="pp" aria-label="Video anhalten"><i></i></button>
 </section>
