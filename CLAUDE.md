@@ -44,6 +44,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 18.11.2026: Fassung 1 als statischer One-Pager (HTML/CSS/JS, keine Abhängigkeiten).
 - 18.11.2026: Neue Seite = Storyboard B WERKHALLE (GPT) + Lackier-Schieber (Idee aus A). Echte Halle und echtes Logo sind Pflicht.
 - 19.11.2026: Neue Seite wird Mehrseiten-Auftritt statt One-Pager; Lackier-Schieber mit echtem Bildpaar aus der Kabine + Farbwahl.
+- 19.11.2026: Hero abgenommen („Passt“): `hero-einfahrt_v1` = echte Tor-Fahrt mit Logo → Weißblende im Tor → Hallen-Clip aus dem echten Hallenfoto rückwärts, endet auf dem echten Hallenbild. Weg für echte Innenräume: Clip vom echten Foto hinaus ins Licht erzeugen und rückwärts setzen.
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
