@@ -4,7 +4,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 ## 1. Ziel und Endprodukt
 Zwei Design-Entwürfe für carservicetan.de (Tan GmbH, Lackiermeisterfachbetrieb, Tichauer Weg 21, 40231 Düsseldorf):
 1. `modern/` – modernisierte Fassung der bestehenden Seite (gleiche Inhalte, neues Design). Fertig 18.11.2026.
-2. `neu/` – komplett neue Seite, etwas Scrollytelling ODER Hintergrundvideos vom Betrieb. Wartet auf Storyboard-Wahl.
+2. `neu/` – komplett neue Seite als MEHRSEITEN-Auftritt (24 Seiten): Start, Leistungsübersicht, eine Unterseite je Leistung (12) mit durchlaufendem Video oben, Über uns, Ersatzfahrzeuge, Galerie, Ratgeber (+2 Artikel), FAQ, Kontakt, Impressum, Datenschutz. Wird aus `neu/build.py` erzeugt.
 
 ## 2. Qualitätsanspruch & Referenzen
 Quelle aller Inhalte: https://carservicetan.de (WordPress, Theme von inoya). Markenfarben: Blau #0b4b8a, Cyan #00aeef, Logo orange/blau. Schrift: Mulish (lokal).
@@ -12,6 +12,9 @@ Quelle aller Inhalte: https://carservicetan.de (WordPress, Theme von inoya). Mar
 ## 3. Regeln für dieses Projekt
 - Entwürfe tragen `noindex` und „Design-Entwurf“ im Seitentitel. Tan GmbH ist ein Kollege von Eugen: Seite wird ihm geschenkt, Eugen will sie als Referenz zeigen. Muss komplett sein (eigenes Impressum, Datenschutz, Ratgeber), keine Links zur alten Seite.
 - Kein Zugriff auf das echte WordPress; Live-Domain nur nach OK.
+- KEIN ONE-PAGER (Eugen 19.11.2026): wirkt billig. Jeder Punkt der Originalseite bekommt eine eigene Unterseite, jede Leistungsseite ein durchlaufendes Video, auf dem sichtbar etwas passiert (nicht nur leichter Zoom).
+- Echte Halle, echtes Gebäude mit Logo in Videos und Bildern (Quellen in `neu/quellen/`). Hero-Testfilm 1 (nur leichte Fahrt) war Eugen zu wenig.
+- Prüfen nur unsichtbar: `node tools/shot.mjs <ordner> 1440x900 <urls>` (Chrome headless, Ganzseiten-Fotos + Konsolenfehler). Nie Seiten auf Eugens Mac öffnen, auch nicht das Browser-Panel.
 - Leere Originalseiten (Glas, Reifen, Oldtimer, Trockeneis) haben von Claude geschriebene Kurztexte: vor Livegang vom Betrieb bestätigen lassen.
 - Fotos stammen von carservicetan.de; die Motive aus 2025/01 (Dellen, Glas, Reifen, Gutachten) sind vermutlich Stockfotos, vor Livegang Rechte klären oder ersetzen.
 - Telefon-Link der Originalseite ist fehlerhaft (tel:0049121198911188), hier korrigiert auf +4921198911188.
@@ -28,7 +31,8 @@ GitHub (Engelstraenen) vorhanden · sjinn.ai in Chrome eingeloggt · WordPress-Z
 Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu/` bauen → Screenshot-Vergleich mit Storyboard → pushen.
 
 ## 7. Befehle
-- Lokal: `cd modern && python3 -m http.server 4471` → http://127.0.0.1:4471 (Port 4350 gehört LICHTBOGEN)
+- Lokal: `cd modern && python3 -m http.server 4471` → http://127.0.0.1:4471 · `cd neu && python3 -m http.server 4472` → http://127.0.0.1:4472 (Port 4350 gehört LICHTBOGEN)
+- Neue Seite bauen: `cd neu && python3 build.py` (Inhalte in build.py, Rechtstexte in `neu/_texte/`, `V` hochzählen gegen Cache). Fertige Videos als `neu/assets/video/<name>.mp4` ablegen und in `neu/data.js` (MEDIA.videos) eintragen: hero-tor, hero-halle, halle, svc-<slug>.
 - Veröffentlichen: `git push origin main && git push origin main:gh-pages`
 - Online: https://engelstraenen.github.io/carservice-tan-demo/
 
@@ -38,6 +42,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 ## 9. Entschieden
 - 18.11.2026: Fassung 1 als statischer One-Pager (HTML/CSS/JS, keine Abhängigkeiten).
 - 18.11.2026: Neue Seite = Storyboard B WERKHALLE (GPT) + Lackier-Schieber (Idee aus A). Echte Halle und echtes Logo sind Pflicht.
+- 19.11.2026: Neue Seite wird Mehrseiten-Auftritt statt One-Pager; Lackier-Schieber mit echtem Bildpaar aus der Kabine + Farbwahl.
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
