@@ -52,6 +52,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 20.11.2026: Beulendoktor-Film v1 abgenommen („Ja, auf die Seite“): `neu/assets/video/svc-beulendoktor.mp4` (MiniMax H3 Unlimited 768P, 10 s, LED-Linienlampe + Drückstange, Reflexlinien werden gerade; kleiner Rest am Ende).
 - 20.11.2026: Startbilder für Lackiererei, Fahrzeugaufbereitung, Oldtimer-Restauration, Trockeneis-Strahlen, Gutachten freigegeben („Alle 5 freigeben“). Prompts in `neu/drafts/prompts/filme_ab_20-11.md`. Reihenfolge (gratis, je Modell 2/Tag): 20.11 Smart Repair + Glas (Wan); 21.11 Reifen + Lackiererei (MiniMax), Aufbereitung + Oldtimer (Wan); 22.11 Trockeneis + Gutachten (MiniMax).
 - 20.11.2026: Leistungsfilme NUR GRATIS (Unlimited), auch wenn die Warteschlange hängt („Nein, gratis warten“). Kein bezahlter Draft ohne neue Freigabe.
+- 20.11.2026: Smart Repair v1 verworfen („Nein, neu rendern“: Papier lag im Startbild über der Schadstelle, Kratzer blieb, Lackierer fuhr aus dem Bild). Neues Startbild `neu/drafts/start/start_smart-repair-v2_4k.png` freigegeben (graue Grundierstelle frei im Papierfenster, Lackierer ganz im Bild). Prompt „Smart Repair v2“ in `filme_ab_20-11.md`. Neuer Plan: 21.11 Smart Repair v2 + Reifen (MiniMax), Aufbereitung + Oldtimer (Wan, falls Glas heute durch); 22.11 Lackiererei + Trockeneis (MiniMax), Gutachten (Wan).
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
