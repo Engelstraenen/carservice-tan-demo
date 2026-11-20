@@ -50,6 +50,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 19.11.2026: Felgen-Film = Glanzdrehen in der CNC-Drehmaschine, Startbild 1 (Nahaufnahme im Maschinenraum, `neu/drafts/start/start_felge-v1_4k.jpg`). Erster Entwurf (silberne Felge, nichts passiert) verworfen.
 - 20.11.2026: Felgen-Film v2 abgenommen („Ja, auf die Seite“): `neu/assets/video/svc-felgenreparatur.mp4` (MiniMax H3 Unlimited 768P, 1344×768, 10 s). Bekannte Abweichung: auch das Felgenbett wird blank.
 - 20.11.2026: Beulendoktor-Film v1 abgenommen („Ja, auf die Seite“): `neu/assets/video/svc-beulendoktor.mp4` (MiniMax H3 Unlimited 768P, 10 s, LED-Linienlampe + Drückstange, Reflexlinien werden gerade; kleiner Rest am Ende).
+- 20.11.2026: Startbilder für Lackiererei, Fahrzeugaufbereitung, Oldtimer-Restauration, Trockeneis-Strahlen, Gutachten freigegeben („Alle 5 freigeben“). Prompts in `neu/drafts/prompts/filme_ab_20-11.md`. Reihenfolge (gratis, je Modell 2/Tag): 20.11 Smart Repair + Glas (Wan); 21.11 Reifen + Lackiererei (MiniMax), Aufbereitung + Oldtimer (Wan); 22.11 Trockeneis + Gutachten (MiniMax).
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
