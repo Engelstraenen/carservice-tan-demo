@@ -48,6 +48,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 19.11.2026: Hero abgenommen („Passt“): `hero-einfahrt_v1` = echte Tor-Fahrt mit Logo → Weißblende im Tor → Hallen-Clip aus dem echten Hallenfoto rückwärts, endet auf dem echten Hallenbild. Weg für echte Innenräume: Clip vom echten Foto hinaus ins Licht erzeugen und rückwärts setzen.
 - 19.11.2026: Felgen-Film = Glanzdrehen in der CNC-Drehmaschine, Startbild 1 (Nahaufnahme im Maschinenraum, `neu/drafts/start/start_felge-v1_4k.jpg`). Erster Entwurf (silberne Felge, nichts passiert) verworfen.
 - 20.11.2026: Felgen-Film v2 abgenommen („Ja, auf die Seite“): `neu/assets/video/svc-felgenreparatur.mp4` (MiniMax H3 Unlimited 768P, 1344×768, 10 s). Bekannte Abweichung: auch das Felgenbett wird blank.
+- 20.11.2026: Beulendoktor-Film v1 abgenommen („Ja, auf die Seite“): `neu/assets/video/svc-beulendoktor.mp4` (MiniMax H3 Unlimited 768P, 10 s, LED-Linienlampe + Drückstange, Reflexlinien werden gerade; kleiner Rest am Ende).
 
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
