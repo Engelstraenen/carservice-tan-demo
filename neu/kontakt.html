@@ -9,14 +9,14 @@
 <link rel="preload" href="assets/fonts/mulish.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/aussen.jpg" as="image">
 <link rel="icon" href="assets/img/favicon.png">
-<link rel="stylesheet" href="style.css?v=22">
+<link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt</a>
 <header class="head" id="head">
   <a class="logo" href="index.html" aria-label="Car Service TAN – Startseite"><img src="assets/img/logo-weiss.png" alt="Car Service TAN GmbH" width="800" height="484"></a>
   <nav class="nav" id="nav" aria-label="Hauptmenü"><div class="nav__drop"><a href="leistungen.html">Leistungen <i></i></a><div class="nav__menu"><a href="leistung-lackiererei.html">Lackiererei</a><a href="leistung-fahrzeugaufbereitung.html">Fahrzeugaufbereitung</a><a href="leistung-smart-repair.html">Smart Repair</a><a href="leistung-beulendoktor.html">Beulendoktor</a><a href="leistung-glasreparatur.html">Glasreparatur</a><a href="leistung-felgenreparatur.html">Felgenreparatur</a><a href="leistung-reifendienst.html">Reifendienst</a><a href="leistung-oldtimer-restauration.html">Oldtimer-Restauration</a><a href="leistung-trockeneis-strahlen.html">Trockeneis-Strahlen</a><a href="leistung-gutachten.html">Kostenvoranschläge & Gutachten</a><a href="leistung-fuhrparkservice.html">Fuhrparkservice</a><a href="leistung-waschanlage.html">Autowaschanlage</a></div></div><a href="ueber-uns.html">Über uns</a><a href="ersatzfahrzeuge.html">Ersatzfahrzeuge</a><a href="galerie.html">Galerie</a><a href="ratgeber.html">Ratgeber</a><a href="faq.html">FAQ</a><a href="kontakt.html" class="is-active">Kontakt</a></nav>
-  <a class="btn btn--line head__cta" href="kontakt.html">Termin</a>
+  <a class="btn btn--line head__cta" href="kontakt.html#termin">Termin</a>
   <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
 </header>
 <main id="main">
@@ -25,7 +25,25 @@
   <div class="hero__in"><nav class="crumbs" aria-label="Brotkrumen"><a href="index.html">Start</a> <span>/</span> <b>Kontakt</b></nav><p class="eyebrow">Kontakt</p><h1>Ein Anruf <em>genügt.</em></h1><p class="hero__sub">Wir sind ein „Haus der offenen Tür“ und freuen uns über jeden Besucher.</p></div>
   <button class="pp" aria-label="Video anhalten"><i></i></button>
 </section>
-<section class="sec"><div class="wrap kontakt"><div><p class="eyebrow">Rufen Sie uns an</p><a class="tel" href="tel:+4921198911188">0211 989 111 88</a><p class="lead">Das Angebot ist kostenlos und unverbindlich. Bei einem Unfall leiten wir alles für Sie in die Wege.</p>
+<section class="sec" id="termin"><div class="wrap kontakt"><div><p class="eyebrow">Termin anfragen</p><h2>Ihr Wunschtermin</h2><p class="lead">Füllen Sie das Formular aus, wir melden uns zur Bestätigung bei Ihnen. Kostenlos und unverbindlich.</p><form class="form" id="terminForm" novalidate>
+<div class="form__grid">
+<label class="f f--full"><span>Worum geht es? *</span><select name="leistung" required><option value="">Bitte wählen</option><option value="Lackiererei" data-slug="lackiererei">Lackiererei</option><option value="Fahrzeugaufbereitung" data-slug="fahrzeugaufbereitung">Fahrzeugaufbereitung</option><option value="Smart Repair" data-slug="smart-repair">Smart Repair</option><option value="Beulendoktor" data-slug="beulendoktor">Beulendoktor</option><option value="Glasreparatur" data-slug="glasreparatur">Glasreparatur</option><option value="Felgenreparatur" data-slug="felgenreparatur">Felgenreparatur</option><option value="Reifendienst" data-slug="reifendienst">Reifendienst</option><option value="Oldtimer-Restauration" data-slug="oldtimer-restauration">Oldtimer-Restauration</option><option value="Trockeneis-Strahlen" data-slug="trockeneis-strahlen">Trockeneis-Strahlen</option><option value="Kostenvoranschläge & Gutachten" data-slug="gutachten">Kostenvoranschläge & Gutachten</option><option value="Fuhrparkservice" data-slug="fuhrparkservice">Fuhrparkservice</option><option value="Autowaschanlage" data-slug="waschanlage">Autowaschanlage</option><option value="Unfallschaden">Unfallschaden</option><option value="Sonstiges">Sonstiges</option></select><em class="err">Bitte eine Leistung wählen.</em></label>
+<label class="f"><span>Name *</span><input name="name" autocomplete="name" required><em class="err">Bitte Ihren Namen eintragen.</em></label>
+<label class="f"><span>Telefon *</span><input name="telefon" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9 +()/-]{6,}"><em class="err">Bitte eine Telefonnummer eintragen.</em></label>
+<label class="f"><span>E-Mail</span><input name="email" type="email" autocomplete="email"><em class="err">Bitte eine gültige E-Mail-Adresse eintragen.</em></label>
+<label class="f"><span>Fahrzeug</span><input name="fahrzeug" placeholder="z. B. VW Golf, Kennzeichen"></label>
+<label class="f"><span>Wunschtermin *</span><input name="datum" type="date" required><em class="err">Bitte einen Tag ab heute wählen.</em></label>
+<div class="f" role="radiogroup" aria-label="Uhrzeit"><span>Uhrzeit</span><div class="tchips"><label><input type="radio" name="zeit" value="Vormittag" checked><b>Vormittag</b></label><label><input type="radio" name="zeit" value="Nachmittag"><b>Nachmittag</b></label></div><em class="err"></em></div>
+<label class="f f--full"><span>Nachricht</span><textarea name="nachricht" rows="4" placeholder="Was ist passiert? Schaden, Fragen, Versicherung …"></textarea></label>
+<label class="check f--full"><input type="checkbox" name="ersatz"><span>Ich benötige ein <a href="ersatzfahrzeuge.html">Ersatzfahrzeug</a></span></label>
+<label class="check f--full"><input type="checkbox" name="ds" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. *</span></label>
+</div>
+<button class="btn btn--pri form__send" type="submit">Termin anfragen</button>
+<p class="form__note">* Pflichtfeld</p>
+<div class="form__ok" role="status" hidden><h3>Fast geschafft</h3><p>Ihr E-Mail-Programm öffnet sich mit der fertigen Anfrage. Bitte dort auf „Senden“ tippen. Es öffnet sich nichts? Rufen Sie uns an: <a href="tel:+4921198911188">0211 989 111 88</a></p></div>
+</form></div>
+<aside class="detail__card rv"><h3>Lieber direkt?</h3><p>Ein Anruf genügt, wir leiten alles für Sie in die Wege.</p><a class="tel tel--s" href="tel:+4921198911188">0211 989 111 88</a><table class="hours"><tr><th>Montag bis Freitag</th><td>08:00–18:00</td></tr><tr><th>Samstag</th><td>08:00–13:00</td></tr><tr><th>Sonntag</th><td>geschlossen</td></tr></table><p><a href="mailto:info@carservicetan.de">info@carservicetan.de</a></p></aside></div></section>
+<section class="sec sec--deep"><div class="wrap kontakt"><div><p class="eyebrow">Rufen Sie uns an</p><a class="tel" href="tel:+4921198911188">0211 989 111 88</a><p class="lead">Das Angebot ist kostenlos und unverbindlich. Bei einem Unfall leiten wir alles für Sie in die Wege.</p>
 <div class="cta"><a class="btn btn--pri" href="mailto:info@carservicetan.de?subject=Terminanfrage">E-Mail schreiben</a><a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&destination=Tichauer+Weg+21,+40231+D%C3%BCsseldorf" target="_blank" rel="noopener">Route planen</a></div></div>
 <aside class="detail__card rv"><h3>Tan GmbH</h3><p>Tichauer Weg 21<br>40231 Düsseldorf</p><table class="hours"><tr><th>Montag bis Freitag</th><td>08:00–18:00</td></tr><tr><th>Samstag</th><td>08:00–13:00</td></tr><tr><th>Sonntag</th><td>geschlossen</td></tr></table><p><a href="mailto:info@carservicetan.de">info@carservicetan.de</a></p></aside></div></section>
 <section class="strip"><button class="rv" data-src="assets/img/aussen.jpg" data-cap="Einfahrt am Tichauer Weg 21"><img src="assets/img/aussen.jpg" alt="Einfahrt am Tichauer Weg 21" loading="lazy"></button><button class="rv" data-src="assets/img/betrieb.jpg" data-cap="Unser Gelände"><img src="assets/img/betrieb.jpg" alt="Unser Gelände" loading="lazy"></button><button class="rv" data-src="assets/img/buero.jpg" data-cap="Empfang und Bürotrakt"><img src="assets/img/buero.jpg" alt="Empfang und Bürotrakt" loading="lazy"></button></section>
@@ -41,7 +59,7 @@
 </footer>
 <a class="callbar" href="tel:+4921198911188">Jetzt anrufen · 0211 989 111 88</a>
 <dialog class="light" id="light"><button class="light__x" id="lightX" aria-label="Schließen">×</button><button class="light__nav light__nav--p" id="lightP" aria-label="Vorheriges Bild">←</button><img id="lightImg" alt=""><button class="light__nav light__nav--n" id="lightN" aria-label="Nächstes Bild">→</button><p id="lightCap"></p></dialog>
-<script src="data.js?v=22"></script>
-<script src="app.js?v=22"></script>
+<script src="data.js?v=23"></script>
+<script src="app.js?v=23"></script>
 </body>
 </html>

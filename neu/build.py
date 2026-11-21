@@ -3,7 +3,7 @@
 Inhalte stehen unten (SERVICES, CARS, GALLERY, FAQ). Rechtstexte/Ratgeber liegen in _texte/."""
 import os, re, html
 HERE = os.path.dirname(os.path.abspath(__file__))
-V = '22'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
+V = '23'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
 TEL, TELH = '0211 989 111 88', 'tel:+4921198911188'
 
 def ul(items): return '<ul class="ticks">' + ''.join(f'<li>{i}</li>' for i in items) + '</ul>'
@@ -96,7 +96,7 @@ def page(fn, title, body, desc='', active='', preload=''):
 <header class="head" id="head">
   <a class="logo" href="index.html" aria-label="Car Service TAN – Startseite"><img src="assets/img/logo-weiss.png" alt="Car Service TAN GmbH" width="800" height="484"></a>
   <nav class="nav" id="nav" aria-label="Hauptmenü">{navh}</nav>
-  <a class="btn btn--line head__cta" href="kontakt.html">Termin</a>
+  <a class="btn btn--line head__cta" href="kontakt.html#termin">Termin</a>
   <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
 </header>
 <main id="main">
@@ -120,10 +120,10 @@ def page(fn, title, body, desc='', active='', preload=''):
 '''
     open(os.path.join(HERE, fn), 'w', encoding='utf-8').write(out)
 
-def hero(clip, poster, eyebrow, h1, sub='', cta=True, tall=False, crumbs=None):
+def hero(clip, poster, eyebrow, h1, sub='', cta=True, tall=False, crumbs=None, svc=''):
     cr = ''
     if crumbs: cr = '<nav class="crumbs" aria-label="Brotkrumen">' + ' <span>/</span> '.join(f'<a href="{h}">{l}</a>' if h else f'<b>{l}</b>' for h, l in crumbs) + '</nav>'
-    c = f'<div class="cta"><a class="btn btn--pri" href="kontakt.html">Termin anfragen</a><a class="btn btn--line btn--tel" href="{TELH}">{PHONE}{TEL}</a></div>' if cta else ''
+    c = f'<div class="cta"><a class="btn btn--pri" href="kontakt.html{'?leistung=' + svc if svc else ''}#termin">Termin anfragen</a><a class="btn btn--line btn--tel" href="{TELH}">{PHONE}{TEL}</a></div>' if cta else ''
     return f'''<section class="hero{' hero--tall' if tall else ' hero--sub'}">
   <div class="vid" data-clips="{clip}" data-posters="{poster}"></div>
   <div class="hero__in">{cr}<p class="eyebrow">{eyebrow}</p><h1>{h1}</h1>{f'<p class="hero__sub">{sub}</p>' if sub else ''}{c}</div>
@@ -140,7 +140,7 @@ SLIDER = f'''<div class="lack__head"><div><p class="eyebrow">Probieren Sie es au
 <div class="ba__bar"><span class="ba__knob"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
 <input class="ba__range" id="baRange" type="range" min="0" max="100" value="8" aria-label="Lackierung aufziehen"></div>'''
 
-CTA = f'''<section class="cta-band"><img src="{img('aussen')}" alt="" loading="lazy"><div class="cta-band__in"><p class="eyebrow">Kostenloses, unverbindliches Angebot</p><a class="tel" href="{TELH}">{TEL}</a><p class="addr">Tichauer Weg 21, 40231 Düsseldorf · Mo–Fr 08–18 · Sa 08–13 Uhr</p><div class="cta"><a class="btn btn--pri" href="kontakt.html">Termin anfragen</a><a class="btn btn--line" href="ersatzfahrzeuge.html">Ersatzfahrzeuge</a></div></div></section>'''
+CTA = f'''<section class="cta-band"><img src="{img('aussen')}" alt="" loading="lazy"><div class="cta-band__in"><p class="eyebrow">Kostenloses, unverbindliches Angebot</p><a class="tel" href="{TELH}">{TEL}</a><p class="addr">Tichauer Weg 21, 40231 Düsseldorf · Mo–Fr 08–18 · Sa 08–13 Uhr</p><div class="cta"><a class="btn btn--pri" href="kontakt.html#termin">Termin anfragen</a><a class="btn btn--line" href="ersatzfahrzeuge.html">Ersatzfahrzeuge</a></div></div></section>'''
 quotes = lambda n=3: '<div class="quotes">' + ''.join(f'<figure class="rv"><div class="stars" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>{q}</blockquote><figcaption>{a}</figcaption></figure>' for q, a in QUOTES[:n]) + '</div>'
 steps = '<ol class="steps">' + ''.join(f'<li class="rv"><b>{t}</b><span>{d}</span></li>' for t, d in STEPS) + '</ol>'
 
@@ -148,7 +148,7 @@ steps = '<ol class="steps">' + ''.join(f'<li class="rv"><b>{t}</b><span>{d}</spa
 page('index.html', 'Lack. Karosserie. Glanz.', f'''
 <section class="hero hero--tall" id="top">
   <div class="vid" id="heroVid" data-clips="halle,halle-ausfahrt" data-posters="halle,halle"></div>
-  <div class="hero__in"><h1>Lack.<br>Karosserie.<br><em>Glanz.</em></h1><p class="hero__sub">Lackiermeisterfachbetrieb in Düsseldorf. Seit 1996, auf 3000 qm, alles aus einer Hand.</p><div class="cta"><a class="btn btn--pri" href="kontakt.html">Termin</a><a class="btn btn--line" href="leistungen.html">Leistungen</a></div></div>
+  <div class="hero__in"><h1>Lack.<br>Karosserie.<br><em>Glanz.</em></h1><p class="hero__sub">Lackiermeisterfachbetrieb in Düsseldorf. Seit 1996, auf 3000 qm, alles aus einer Hand.</p><div class="cta"><a class="btn btn--pri" href="kontakt.html#termin">Termin</a><a class="btn btn--line" href="leistungen.html">Leistungen</a></div></div>
   <div class="hero__ctrl"><div class="dots" id="heroDots"></div></div><button class="pp" aria-label="Video anhalten"><i></i></button>
 </section>
 <section class="sec"><div class="wrap"><div class="sec__top"><div><p class="eyebrow">Leistungen</p><h2>Was wir für Ihr Fahrzeug tun</h2></div><a class="more" href="leistungen.html">Alle {len(SERVICES)} Leistungen →</a></div>
@@ -169,9 +169,9 @@ page('leistungen.html', 'Leistungen', hero('page-leistungen', 'kabine-aussen', '
 for i, s in enumerate(SERVICES):
     prev, nxt = SERVICES[i - 1], SERVICES[(i + 1) % len(SERVICES)]
     rel = [SERVICES[(i + k) % len(SERVICES)] for k in (2, 4, 7)]
-    body = hero(f'svc-{s["slug"]}', s['img'], f'{i + 1:02d} · {s["t"]}', s['claim'], s['lead'], crumbs=[('index.html', 'Start'), ('leistungen.html', 'Leistungen'), ('', s['t'])])
+    body = hero(f'svc-{s["slug"]}', s['img'], f'{i + 1:02d} · {s["t"]}', s['claim'], s['lead'], crumbs=[('index.html', 'Start'), ('leistungen.html', 'Leistungen'), ('', s['t'])], svc=s['slug'])
     body += f'''<section class="sec"><div class="wrap detail"><div class="detail__txt"><p class="eyebrow">{s.get("sub", "Leistung")}</p><h2>{s["t"]}</h2>{s["body"]}{ul(s["list"])}{s.get("extra", "")}</div>
-<aside class="detail__card rv"><h3>Kostenloses Angebot</h3><p>Ein Anruf genügt, wir leiten alles für Sie in die Wege.</p><a class="tel tel--s" href="{TELH}">{TEL}</a><table class="hours"><tr><th>Mo–Fr</th><td>08:00–18:00</td></tr><tr><th>Sa</th><td>08:00–13:00</td></tr></table><a class="btn btn--pri" href="kontakt.html">Termin anfragen</a></aside></div></section>'''
+<aside class="detail__card rv"><h3>Kostenloses Angebot</h3><p>Ein Anruf genügt, wir leiten alles für Sie in die Wege.</p><a class="tel tel--s" href="{TELH}">{TEL}</a><table class="hours"><tr><th>Mo–Fr</th><td>08:00–18:00</td></tr><tr><th>Sa</th><td>08:00–13:00</td></tr></table><a class="btn btn--pri" href="kontakt.html?leistung={s['slug']}#termin">Termin anfragen</a></aside></div></section>'''
     if s.get('slider'): body += f'<section class="sec sec--deep" id="lack"><div class="wrap">{SLIDER}</div></section>'
     body += f'<section class="strip">{"".join(f"<button class=\"rv\" data-src=\"{img(m)}\" data-cap=\"{s["t"]}\"><img src=\"{img(m)}\" alt=\"{s["t"]} bei der Tan GmbH\" loading=\"lazy\"></button>" for m in s["more"])}</section>'
     body += f'<section class="sec sec--deep"><div class="wrap"><p class="eyebrow">So läuft es ab</p><h2>In vier Schritten zurück auf die Straße</h2>{steps}</div></section>'
@@ -204,9 +204,30 @@ page('galerie.html', 'Galerie', hero('page-galerie', 'halle-hoch', 'Galerie', 'E
 page('faq.html', 'FAQ', hero('page-faq', 'tueren', 'FAQ', 'Die meistgestellten <em>Fragen.</em>', 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns.', cta=False, crumbs=[('index.html', 'Start'), ('', 'FAQ')]) +
      '<section class="sec"><div class="narrow">' + ''.join(f'<details class="q rv"{" open" if k == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for k, (q, a) in enumerate(FAQ)) + '</div></section>' + CTA, active='faq', preload=img('buero'))
 
+# ---------- Terminformular (statische Seite: Absenden öffnet die fertige E-Mail; beim Livegang an Formular-Backend anschließen) ----------
+FORM = f'''<form class="form" id="terminForm" novalidate>
+<div class="form__grid">
+<label class="f f--full"><span>Worum geht es? *</span><select name="leistung" required><option value="">Bitte wählen</option>{"".join(f'<option value="{s["t"]}" data-slug="{s["slug"]}">{s["t"]}</option>' for s in SERVICES)}<option value="Unfallschaden">Unfallschaden</option><option value="Sonstiges">Sonstiges</option></select><em class="err">Bitte eine Leistung wählen.</em></label>
+<label class="f"><span>Name *</span><input name="name" autocomplete="name" required><em class="err">Bitte Ihren Namen eintragen.</em></label>
+<label class="f"><span>Telefon *</span><input name="telefon" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9 +()/-]{{6,}}"><em class="err">Bitte eine Telefonnummer eintragen.</em></label>
+<label class="f"><span>E-Mail</span><input name="email" type="email" autocomplete="email"><em class="err">Bitte eine gültige E-Mail-Adresse eintragen.</em></label>
+<label class="f"><span>Fahrzeug</span><input name="fahrzeug" placeholder="z. B. VW Golf, Kennzeichen"></label>
+<label class="f"><span>Wunschtermin *</span><input name="datum" type="date" required><em class="err">Bitte einen Tag ab heute wählen.</em></label>
+<div class="f" role="radiogroup" aria-label="Uhrzeit"><span>Uhrzeit</span><div class="tchips"><label><input type="radio" name="zeit" value="Vormittag" checked><b>Vormittag</b></label><label><input type="radio" name="zeit" value="Nachmittag"><b>Nachmittag</b></label></div><em class="err"></em></div>
+<label class="f f--full"><span>Nachricht</span><textarea name="nachricht" rows="4" placeholder="Was ist passiert? Schaden, Fragen, Versicherung …"></textarea></label>
+<label class="check f--full"><input type="checkbox" name="ersatz"><span>Ich benötige ein <a href="ersatzfahrzeuge.html">Ersatzfahrzeug</a></span></label>
+<label class="check f--full"><input type="checkbox" name="ds" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. *</span></label>
+</div>
+<button class="btn btn--pri form__send" type="submit">Termin anfragen</button>
+<p class="form__note">* Pflichtfeld</p>
+<div class="form__ok" role="status" hidden><h3>Fast geschafft</h3><p>Ihr E-Mail-Programm öffnet sich mit der fertigen Anfrage. Bitte dort auf „Senden“ tippen. Es öffnet sich nichts? Rufen Sie uns an: <a href="{TELH}">{TEL}</a></p></div>
+</form>'''
+
 # ---------- Kontakt ----------
 page('kontakt.html', 'Kontakt', hero('hero-tor', 'aussen', 'Kontakt', 'Ein Anruf <em>genügt.</em>', 'Wir sind ein „Haus der offenen Tür“ und freuen uns über jeden Besucher.', cta=False, crumbs=[('index.html', 'Start'), ('', 'Kontakt')]) + f'''
-<section class="sec"><div class="wrap kontakt"><div><p class="eyebrow">Rufen Sie uns an</p><a class="tel" href="{TELH}">{TEL}</a><p class="lead">Das Angebot ist kostenlos und unverbindlich. Bei einem Unfall leiten wir alles für Sie in die Wege.</p>
+<section class="sec" id="termin"><div class="wrap kontakt"><div><p class="eyebrow">Termin anfragen</p><h2>Ihr Wunschtermin</h2><p class="lead">Füllen Sie das Formular aus, wir melden uns zur Bestätigung bei Ihnen. Kostenlos und unverbindlich.</p>{FORM}</div>
+<aside class="detail__card rv"><h3>Lieber direkt?</h3><p>Ein Anruf genügt, wir leiten alles für Sie in die Wege.</p><a class="tel tel--s" href="{TELH}">{TEL}</a><table class="hours"><tr><th>Montag bis Freitag</th><td>08:00–18:00</td></tr><tr><th>Samstag</th><td>08:00–13:00</td></tr><tr><th>Sonntag</th><td>geschlossen</td></tr></table><p><a href="mailto:info@carservicetan.de">info@carservicetan.de</a></p></aside></div></section>
+<section class="sec sec--deep"><div class="wrap kontakt"><div><p class="eyebrow">Rufen Sie uns an</p><a class="tel" href="{TELH}">{TEL}</a><p class="lead">Das Angebot ist kostenlos und unverbindlich. Bei einem Unfall leiten wir alles für Sie in die Wege.</p>
 <div class="cta"><a class="btn btn--pri" href="mailto:info@carservicetan.de?subject=Terminanfrage">E-Mail schreiben</a><a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&destination=Tichauer+Weg+21,+40231+D%C3%BCsseldorf" target="_blank" rel="noopener">Route planen</a></div></div>
 <aside class="detail__card rv"><h3>Tan GmbH</h3><p>Tichauer Weg 21<br>40231 Düsseldorf</p><table class="hours"><tr><th>Montag bis Freitag</th><td>08:00–18:00</td></tr><tr><th>Samstag</th><td>08:00–13:00</td></tr><tr><th>Sonntag</th><td>geschlossen</td></tr></table><p><a href="mailto:info@carservicetan.de">info@carservicetan.de</a></p></aside></div></section>
 <section class="strip">{"".join(f'<button class="rv" data-src="{img(m)}" data-cap="{c}"><img src="{img(m)}" alt="{c}" loading="lazy"></button>' for m, c in [("aussen","Einfahrt am Tichauer Weg 21"),("betrieb","Unser Gelände"),("buero","Empfang und Bürotrakt")])}</section>''', active='kontakt', preload=img('aussen'))

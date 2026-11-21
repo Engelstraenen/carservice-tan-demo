@@ -112,3 +112,41 @@ function count(el) {
   const step = t => { const k = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))); k < 1 && requestAnimationFrame(step); };
   requestAnimationFrame(step);
 }
+
+/* ---------- Terminformular: prüfen, dann fertige E-Mail öffnen ---------- */
+(() => {
+  const f = $('#terminForm'); if (!f) return;
+  const el = n => f.elements[n], box = n => el(n).closest('.f, .check');
+  const pad = n => String(n).padStart(2, '0'), d0 = new Date(), today = `${d0.getFullYear()}-${pad(d0.getMonth() + 1)}-${pad(d0.getDate())}`;
+  el('datum').min = today;
+  const slug = new URLSearchParams(location.search).get('leistung');
+  if (slug) { const o = [...el('leistung').options].find(o => o.dataset.slug === slug); if (o) el('leistung').value = o.value; }
+  const zeitBox = f.querySelector('[role=radiogroup]');
+  const check = () => {
+    const errs = [];
+    const mark = (b, bad, msg) => { b.classList.toggle('is-err', bad); if (bad) { if (msg) { const e = b.querySelector('.err'); e && (e.textContent = msg); } errs.push(b); } };
+    mark(box('leistung'), !el('leistung').value);
+    mark(box('name'), el('name').value.trim().length < 2);
+    mark(box('telefon'), !/^[0-9 +()\/-]{6,}$/.test(el('telefon').value.trim()));
+    mark(box('email'), !!el('email').value.trim() && !el('email').checkValidity());
+    const v = el('datum').value, day = v ? new Date(v + 'T12:00').getDay() : -1;
+    mark(box('datum'), !v || v < today || day === 0, !v || v < today ? 'Bitte einen Tag ab heute wählen.' : 'Sonntags ist geschlossen. Bitte einen anderen Tag wählen.');
+    const zeit = f.querySelector('[name=zeit]:checked').value;
+    mark(zeitBox, day === 6 && zeit === 'Nachmittag', 'Samstags sind wir bis 13 Uhr da. Bitte Vormittag wählen.');
+    mark(el('ds').closest('.check'), !el('ds').checked);
+    return errs;
+  };
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const errs = check(); f.dataset.tried = '1';
+    if (errs.length) { const first = errs[0].querySelector('input,select,textarea') || errs[0]; first.focus({ preventScroll: true }); errs[0].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); return; }
+    const v = el('datum').value.split('-'), datum = `${v[2]}.${v[1]}.${v[0]}`, zeit = f.querySelector('[name=zeit]:checked').value;
+    const body = [`Leistung: ${el('leistung').value}`, `Wunschtermin: ${datum}, ${zeit}`, `Name: ${el('name').value.trim()}`, `Telefon: ${el('telefon').value.trim()}`, el('email').value.trim() && `E-Mail: ${el('email').value.trim()}`, el('fahrzeug').value.trim() && `Fahrzeug: ${el('fahrzeug').value.trim()}`, `Ersatzfahrzeug: ${el('ersatz').checked ? 'ja' : 'nein'}`, el('nachricht').value.trim() && `\nNachricht:\n${el('nachricht').value.trim()}`, '\nDatenschutzhinweis gelesen und akzeptiert.'].filter(Boolean).join('\n');
+    const url = `mailto:info@carservicetan.de?subject=${encodeURIComponent(`Terminanfrage: ${el('leistung').value} am ${datum} (${zeit})`)}&body=${encodeURIComponent(body)}`;
+    f.dataset.mailto = url;
+    $('.form__ok', f).hidden = false;
+    location.href = url;
+  });
+  f.addEventListener('input', () => f.dataset.tried && check());
+  f.addEventListener('change', () => f.dataset.tried && check());
+})();

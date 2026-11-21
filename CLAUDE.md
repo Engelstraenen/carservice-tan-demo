@@ -40,6 +40,7 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - Online: https://engelstraenen.github.io/carservice-tan-demo/
 
 ## 8. Offene Fragen
+- Terminformular: Welches Backend beim Livegang (Contact Form 7 im WordPress oder Formulardienst)?
 - Echte Fotos/Videos vom Betrieb verfügbar? Datenschutztext stammt von der alten WordPress-Seite und muss vor Livegang an die neue Technik angepasst werden.
 
 ## 9. Entschieden
@@ -57,5 +58,6 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 21.11.2026: Smart Repair v2 misslungen (sprüht neben das Papierfenster, graue Stelle bleibt, Kamera fährt stark heran). Startbild v3 als Nahaufnahme erzeugt (`neu/drafts/start/start_smart-repair-v3_4k.png`, Düse zielt auf die mittige graue Stelle) und freigegeben („Ja, freigeben“). Neuer Plan: 22.11 Smart Repair v3 + Lackiererei (MiniMax), Gutachten (Wan); 23.11 Trockeneis (MiniMax). Aufbereitung + Oldtimer (Wan) sobald der Wan-Slot frei ist. Prompt „Smart Repair v3“ in `filme_ab_20-11.md`.
 
 - 21.11.2026: Start-Hero ersetzt (Eugen: „das Video auf der Startseite ist komplett falsch … beide Hallenvideos nacheinander“). carservicetan.de hat KEIN eigenes Video (Mediathek: nur Bilder, alle Seiten geprüft). Start-Hero = `halle` (Wan, aus dem echten Hallenfoto, Fahrt an der Autoreihe) → Überblendung 1,2 s → `halle-ausfahrt` (MiniMax 768P, aus dem echten Hallenfoto, Schwenk zum Tor hinaus ins Licht), im Wechsel, jeder Film läuft ganz durch (app.js: Hero mit mehreren Videos spielt nacheinander per `ended`). `hero-tor` (Tor-Fahrt + Halle rückwärts) ist von der Startseite runter, bleibt auf Kontakt („Nein, bleibt“).
+- 21.11.2026: Terminformular („bei Termin brauchen wir noch ein Kontaktformular“) auf kontakt.html#termin: Leistung (vorbelegt per ?leistung=<slug> von jeder Leistungsseite), Name*, Telefon*, E-Mail, Fahrzeug, Wunschtermin* (ab heute, sonntags gesperrt, samstags nur Vormittag), Uhrzeit, Nachricht, Ersatzfahrzeug, Datenschutz*. Alle Termin-Knöpfe zeigen darauf. Absenden öffnet die fertige E-Mail an info@carservicetan.de (statische Seite, kein Server). VOR LIVEGANG: an echtes Formular-Backend anschließen (WordPress/Contact Form 7 oder Formulardienst), Datenschutztext ergänzen.
 ## 10. Ablage
 Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).

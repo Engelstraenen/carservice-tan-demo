@@ -323,3 +323,36 @@ a.row{text-decoration:none}
 .hero .pp{z-index:2}
 .subhero+.prose{padding-top:44px}
 .sec>.narrow{padding:0}
+
+/* ---------- Terminformular ---------- */
+.form{margin-top:30px}
+.form__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 20px}
+.f{display:flex;flex-direction:column;gap:8px;min-width:0;position:relative}
+.f>span{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.f--full{grid-column:1/-1}
+.f input,.f select,.f textarea{font:inherit;color:#fff;background:var(--bg2);border:1.5px solid var(--line);border-radius:8px;padding:.78em .95em;width:100%;min-height:52px;transition:border-color .2s,background .2s;-webkit-appearance:none;appearance:none}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%231ea7f5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:20px;padding-right:2.8em;cursor:pointer}
+.f select option{background:#0b1c30;color:#fff}
+.f input::placeholder,.f textarea::placeholder{color:#5f7690}
+.f input:hover,.f select:hover,.f textarea:hover{border-color:rgba(255,255,255,.3)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--cy);background:#0a2038}
+.f textarea{resize:vertical;min-height:130px}
+.f input[type=date]{color-scheme:dark}
+.f .err{display:none;font-style:normal;font-size:.86rem;color:#ff8f8f}
+.f.is-err .err{display:block}
+.f.is-err input,.f.is-err select,.f.is-err textarea,.f.is-err .tchips b{border-color:#ff6b6b}
+.tchips{display:flex;gap:10px}
+.tchips label{flex:1;cursor:pointer;position:relative}
+.tchips input{position:absolute;opacity:0;pointer-events:none}
+.tchips b{display:flex;align-items:center;justify-content:center;min-height:52px;border:1.5px solid var(--line);border-radius:8px;font-weight:700;color:var(--txt);transition:border-color .2s,background .2s,color .2s}
+.tchips label:hover b{border-color:rgba(255,255,255,.3)}
+.tchips input:checked+b{border-color:var(--cy);background:rgba(30,167,245,.16);color:#fff}
+.tchips input:focus-visible+b{outline:3px solid var(--cy);outline-offset:2px}
+.check{display:flex;gap:14px;align-items:flex-start;font-size:.97rem;line-height:1.5;cursor:pointer}
+.check input{width:22px;height:22px;flex:none;margin:2px 0 0;accent-color:var(--cy);cursor:pointer}
+.check.is-err span{color:#ff8f8f}
+.form__send{margin-top:28px;min-width:260px;font-size:1.05rem;padding:.95em 2em}
+.form__note{font-size:.85rem;color:var(--mut);margin:12px 0 0}
+.form__ok{margin-top:22px;padding:22px 24px;border:1px solid var(--cy);border-radius:var(--r);background:rgba(30,167,245,.1)}
+.form__ok h3{margin-bottom:8px}.form__ok p{margin:0}
+@media (max-width:600px){.form__grid{grid-template-columns:1fr}.form__send{width:100%}}
