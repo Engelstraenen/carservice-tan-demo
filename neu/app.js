@@ -25,9 +25,11 @@ $$('.vid').forEach(box => {
 $$('.hero').forEach(hero => {
   const box = $('.vid', hero), pp = $('.pp', hero); if (!box || !pp) return;
   const dots = $('.dots', hero), n = box._els.length; let cur = 0, t;
-  const arm = () => { clearTimeout(t); if (n > 1 && !box._paused && !reduce) t = setTimeout(() => go(cur + 1), box._els[cur].tagName === 'VIDEO' ? 10000 : 6000); };
-  const go = i => { cur = (i + n) % n; box._show(cur); dots && [...dots.children].forEach((d, k) => d.classList.toggle('is-on', k === cur)); arm(); };
+  const seq = n > 1 && box._els.every(e => e.tagName === 'VIDEO');
+  const arm = () => { clearTimeout(t); if (n > 1 && !seq && !box._paused && !reduce) t = setTimeout(() => go(cur + 1), box._els[cur].tagName === 'VIDEO' ? 10000 : 6000); };
+  const go = i => { cur = (i + n) % n; const v = box._els[cur]; if (seq) v.currentTime = 0; box._show(cur); dots && [...dots.children].forEach((d, k) => d.classList.toggle('is-on', k === cur)); arm(); };
   if (dots && n > 1) { dots.innerHTML = box._els.map((_, i) => `<button aria-label="Szene ${i + 1}"${i ? '' : ' class="is-on"'}></button>`).join(''); dots.addEventListener('click', e => { const i = [...dots.children].indexOf(e.target); i >= 0 && go(i); }); }
+  if (seq) box._els.forEach((v, k) => { v.loop = false; v.preload = 'auto'; v.addEventListener('ended', () => k === cur && go(cur + 1)); });
   pp.onclick = () => { const p = !box._paused; box._pause(p); pp.classList.toggle('is-paused', p); pp.setAttribute('aria-label', p ? 'Video abspielen' : 'Video anhalten'); arm(); };
   arm();
 });
