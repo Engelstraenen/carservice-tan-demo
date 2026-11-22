@@ -3,7 +3,7 @@
 Inhalte stehen unten (SERVICES, CARS, GALLERY, FAQ). Rechtstexte/Ratgeber liegen in _texte/."""
 import os, re, html
 HERE = os.path.dirname(os.path.abspath(__file__))
-V = '23'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
+V = '24'  # Versionskennung gegen Browser-Cache: bei jeder Änderung hochzählen
 TEL, TELH = '0211 989 111 88', 'tel:+4921198911188'
 
 def ul(items): return '<ul class="ticks">' + ''.join(f'<li>{i}</li>' for i in items) + '</ul>'
