@@ -64,4 +64,4 @@ Storyboards A/B/C zeigen → Eugen wählt → 4K-Bilder/Videos erzeugen → `neu
 - 23.11.2026: Trockeneis v1 abgenommen („Ja, drauf“): `neu/assets/video/svc-trockeneis-strahlen.mp4` (MiniMax H3 Unlimited 768P, 1344×768, 10 s, gratis, Start 03:08 nach 3 belegten Versuchen). Fahrt von der Totalen unter das Auto, Strahl + CO2-Nebel; Dreck platzt kaum sichtbar ab, Bediener mit Brille statt Visier. Damit alle 12 Leistungsseiten mit Film (V25).
 - 24.11.2026: Terminformular ist nur ein Muster („nur ein Muster-Terminformular, nichts Wildes“). Kein Backend nötig, bleibt so (öffnet E-Mail).
 ## 10. Ablage
-Repo: github.com/Engelstraenen/carservice-tan-demo. Zielordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (noch nicht verschoben).
+Repo: github.com/Engelstraenen/carservice-tan-demo. Projektordner: Dropbox/CLAUDE/Projekte/CARSERVICE-TAN (eigenes Projekt seit 24.11.2026).
